@@ -136,6 +136,15 @@ The folder ``usb_traces`` contain the USB trace of the two runs:
 
 These trace can be viewed with the *Visual USB Software* from Ellisys (http://www.ellisys.com/products/usbex200/download.php)
 
+## System informations
+
+The folder ``raspinfo`` contain the output of the raspinfo script :
+
+* ``raspinfo_pi4.txt`` : output of raspinfo on a Raspberry PI 4
+* ``raspinfo_pi2.txt`` : output of raspinfo on a Raspberry PI 2
+
+These trace can be viewed with the *Visual USB Software* from Ellisys (http://www.ellisys.com/products/usbex200/download.php)
+
 
 ## Misc links:
 
