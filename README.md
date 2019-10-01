@@ -1,38 +1,24 @@
-# Bug in the Raspberry Pi Zero stack
-A simple program to exhibit a bug in the USB stack of the Raspberry Pi Zero.
+# Bug in the Raspberry 4 USB stack
+A simple program to exhibit a bug in the USB stack  of the Raspberry Pi 4.
 
-## Sort descriptions of the bug
-
-On random occasion, the Raspberry Pi Zero sends corrupted CRC on ``IN`` request on interrupt endpoint.
-
-![Screenshot of the USB trace](screen_capture.png)
-
-
-## Context
+## Description of the Bug
 
 We produce USB 2.0 devices that work at Full Speed (not High Speed) and use two interrupt endpoints. See [http://www.yoctopuce.com]. Our devices are declared as HID devices that use a Vendor specific protocol. Our open source library use the libUSB 1.0 to communicate with our devices.
 
-We tested and used all Raspberry Pi devices since their appartion on on market. But we discovered that official Raspbian Image after march 2016 installed on a Raspberry Pi Zero don't work with our devices any more.
+We tested and used all Raspberry Pi devices since their apparition on on market. But we discovered that official Raspbian on a Raspberry Pi 4 don't work with our devices any more.
 
-After some investgations we found out that USB packet sent by the Raspberry Pi Zero have sometime Invalid CRC. According to the USB specification (section: 8.7.1) when a device receives an invalid packet, it should ignore it and the USB host (the Raspberry Pi Zero) should resend it later.
+After some investigations we found out that device->host USB packets are not reported correctly by the libUSB. Using an USB analyser we can see that all packet are correctly sent (they are ACKed by the USB Host controller), but in the application the configured callback never get called.
 
-But, on instead the libUSB return an error and is no more able to use the devices. Sometime it event completely freeze the Raspberry Pi Zero.
+We have not been able to determine if the issue is in the libUSB or the Linux kernel. But we have write a simple program exhibits the problem. It's a simple threaded example that iterates over all Yoctopuce connected devices and send 15 USB packets. For each sent packet the device with respond with an USB Packet.
 
-We have not been able to determine if the issue is in the libUSB or the Linux kernel. But lots of regression testing were done and here are the results:
-
-* Official Raspbian image until March 2016 does not have this issue.
-* Only the Raspberry Pi Zero and Pi Zero W are affected.
-
-This simple program exhibits the problem. It's a simple threaded example that iterates over all Yoctopuce connected devices and send 15 USB packets. For each sent packet the device with respond with an USB Packet.
-
-If this binary is run on a Raspberry PI 2 or 3 everything run smoothly, but  if it is executed on a Raspberry PI Zero the libUSB report an IO error and freeze on the next packet send.
+If this binary is run on a Raspberry PI 2 or 3 everything run smoothly, but  if it is executed on a Raspberry PI 4 the libUSB never report incoming USB packet.
 
 
 ## Steps to compile this program
 
 First clone this repository on your Raspberry PI Zero.
 ```
-git clone https://github.com/yoctopuce-examples/raspberry_pi_zero_bug.git
+git clone https://github.com/yoctopuce-examples/raspberry_4_usb_bug.git
 ```
 
 Install libUSB 1.0 headers.
@@ -44,85 +30,109 @@ sudo apt-get install libusb-1.0-0-dev
 Compile the file program with the following command
 
 ```
-gcc bug_pizero.c -o bug_pizero -lusb-1.0
+gcc bug_usb_pi4.c -o bug_usb_pi4 -lusb-1.0
 ```
 
 Run the example as root
 ```
-sudo ./bug_pizero
+sudo ./bug_usb_pi4
 ```
 
-### execution on a Rapberry Pi 2
+### Execution on a Rapberry Pi 4 (exhibit BUG)
 
 ```
-pi@raspberrypi:~/raspberry_pi_zero_bug $ sudo ./bug_pizero
+pi@raspberrypi:~/raspberry_4_usb_bug $ sudo ./bug_usb_pi4
 this is a simple program that exhibit a bug in the USB stack
 of the Raspberry PI Zero and any Yoctopuce device
-Use libUSB v1.0.19.10903
+Use libUSB v1.0.22.11312
 List all Yoctopuce devices present on this host:
- - USB dev: RELAYHI1-85D28 (24E0:D:0)
+ - USB dev: VOLTAGE1-1DCAC (24E0:1B:0)
 1 Yoctopuce devices are present
-\ Test device RELAYHI1-85D28 (24E0:D)
-+ Send USB pkt no 0
-- rd_callback for RELAYHI1-85D28 : response 0 is valid (len=64)
-+ Send USB pkt no 1
-- rd_callback for RELAYHI1-85D28 : response 1 is valid (len=64)
-+ Send USB pkt no 2
-- rd_callback for RELAYHI1-85D28 : response 2 is valid (len=64)
-+ Send USB pkt no 3
-- rd_callback for RELAYHI1-85D28 : response 3 is valid (len=64)
-+ Send USB pkt no 4
-- rd_callback for RELAYHI1-85D28 : response 4 is valid (len=64)
-+ Send USB pkt no 5
-- rd_callback for RELAYHI1-85D28 : response 5 is valid (len=64)
-+ Send USB pkt no 6
-- rd_callback for RELAYHI1-85D28 : response 6 is valid (len=64)
-+ Send USB pkt no 7
-- rd_callback for RELAYHI1-85D28 : response 7 is valid (len=64)
-+ Send USB pkt no 8
-- rd_callback for RELAYHI1-85D28 : response 8 is valid (len=64)
-+ Send USB pkt no 9
-- rd_callback for RELAYHI1-85D28 : response 9 is valid (len=64)
-+ Send USB pkt no 10
-- rd_callback for RELAYHI1-85D28 : response 10 is valid (len=64)
-+ Send USB pkt no 11
-- rd_callback for RELAYHI1-85D28 : response 11 is valid (len=64)
-+ Send USB pkt no 12
-- rd_callback for RELAYHI1-85D28 : response 12 is valid (len=64)
-+ Send USB pkt no 13
-- rd_callback for RELAYHI1-85D28 : response 13 is valid (len=64)
-+ Send USB pkt no 14
-- rd_callback for RELAYHI1-85D28 : response 14 is valid (len=64)
-= result: 15 pkt sent vs 15 pkt received
-Cancel and free all pending transactions
-```
-
-### execution on a Rapberry Pi Zero
-
-
-```
-pi@raspberrypi:~/raspberry_pi_zero_bug $ sudo ./bug_pizero
-this is a simple program that exhibit a bug in the USB stack
-of the Raspberry PI Zero and any Yoctopuce device
-Use libUSB v1.0.19.10903
-List all Yoctopuce devices present on this host:
- - USB dev: RELAYHI1-85D28 (24E0:D:0)
-1 Yoctopuce devices are present
-\ Test device RELAYHI1-85D28 (24E0:D)
+\ Test device VOLTAGE1-1DCAC (24E0:1B)
 - need to detach kernel driver
 + Send USB pkt no 0
-- rd_callback for RELAYHI1-85D28 : pkt error (len=0)
-USB pkt transmit error -1 (transmitted 0 / 64)
-= result: 0 pkt sent vs 0 pkt received
++ Send USB pkt no 1
++ Send USB pkt no 2
++ Send USB pkt no 3
++ Send USB pkt no 4
++ Send USB pkt no 5
++ Send USB pkt no 6
++ Send USB pkt no 7
++ Send USB pkt no 8
++ Send USB pkt no 9
++ Send USB pkt no 10
++ Send USB pkt no 11
++ Send USB pkt no 12
++ Send USB pkt no 13
++ Send USB pkt no 14
+= result: 15 pkt sent vs 0 pkt received
+!!! ERROR : 15 packets missing !!!
 Cancel and free all pending transactions
+pi@raspberrypi:~/raspberry_4_usb_bug $
 ```
+
+But if we look on the USB analyser there is 15 packets sent by the device.
+![Screenshot of the USB trace on Pi 4](screen_capture_pi4.png)
+
+### Execution on a Rapberry Pi 2 (Working)
+
+If we run the exact same image on a Raspberry Pi 2 everything is working correctly:
+
+```
+pi@raspberrypi:~/raspberry_4_usb_bug $ sudo ./bug_usb_pi4
+this is a simple program that exhibit a bug in the USB stack
+of the Raspberry PI Zero and any Yoctopuce device
+Use libUSB v1.0.22.11312
+List all Yoctopuce devices present on this host:
+ - USB dev: VOLTAGE1-1DCAC (24E0:1B:0)
+1 Yoctopuce devices are present
+\ Test device VOLTAGE1-1DCAC (24E0:1B)
+- need to detach kernel driver
++ Send USB pkt no 0
+- rd_callback for VOLTAGE1-1DCAC : response 0 is valid (len=64)
++ Send USB pkt no 1
+- rd_callback for VOLTAGE1-1DCAC : response 1 is valid (len=64)
++ Send USB pkt no 2
+- rd_callback for VOLTAGE1-1DCAC : response 2 is valid (len=64)
++ Send USB pkt no 3
+- rd_callback for VOLTAGE1-1DCAC : response 3 is valid (len=64)
++ Send USB pkt no 4
+- rd_callback for VOLTAGE1-1DCAC : response 4 is valid (len=64)
++ Send USB pkt no 5
+- rd_callback for VOLTAGE1-1DCAC : response 5 is valid (len=64)
++ Send USB pkt no 6
+- rd_callback for VOLTAGE1-1DCAC : response 6 is valid (len=64)
++ Send USB pkt no 7
+- rd_callback for VOLTAGE1-1DCAC : response 7 is valid (len=64)
++ Send USB pkt no 8
+- rd_callback for VOLTAGE1-1DCAC : response 8 is valid (len=64)
++ Send USB pkt no 9
+- rd_callback for VOLTAGE1-1DCAC : response 9 is valid (len=64)
++ Send USB pkt no 10
+- rd_callback for VOLTAGE1-1DCAC : response 10 is valid (len=64)
++ Send USB pkt no 11
+- rd_callback for VOLTAGE1-1DCAC : response 11 is valid (len=64)
++ Send USB pkt no 12
+- rd_callback for VOLTAGE1-1DCAC : response 12 is valid (len=64)
++ Send USB pkt no 13
+- rd_callback for VOLTAGE1-1DCAC : response 13 is valid (len=64)
++ Send USB pkt no 14
+- rd_callback for VOLTAGE1-1DCAC : response 14 is valid (len=64)
+= result: 15 pkt sent vs 15 pkt received
+Cancel and free all pending transactions
+pi@raspberrypi:~/raspberry_4_usb_bug $
+```
+
+And the corresponding USB trace:
+![Screenshot of the USB trace on Pi 2](screen_capture_pi2.png)
+
 
 ## USB traces
 
-The folder ``usb_traces`` contain the USB trace of two runs:
+The folder ``usb_traces`` contain the USB trace of the two runs:
 
+* ``usb_trace_pi_4.ufo`` : has been captured on a Raspberry PI 4
 * ``usb_trace_pi_2.ufo`` : has been captured on a Raspberry PI 2
-* ``usb_trace_pi_zero.ufo`` : has been captured on a Raspberry PI Zero and 	contain an packet with an invalid CRC.
 
 These trace can be viewed with the *Visual USB Software* from Ellisys (http://www.ellisys.com/products/usbex200/download.php)
 
@@ -131,5 +141,3 @@ These trace can be viewed with the *Visual USB Software* from Ellisys (http://ww
 
 * USB specifications: http://www.usb.org/developers/docs/usb20_docs/
 * USB analyser used : http://www.ellisys.com/products/usbex200/index.php
-* Official Raspbian images: https://downloads.raspberrypi.org/raspbian/images/
-* Original project that was working with old Raspiban images:http://www.yoctopuce.com/EN/article/creating-an-multimeter-with-a-raspberry-pi-zero
