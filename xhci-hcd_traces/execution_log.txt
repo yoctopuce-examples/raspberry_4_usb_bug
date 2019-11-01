@@ -1,0 +1,24 @@
+root@raspberrypi:/sys/kernel/debug/tracing# echo > trace
+root@raspberrypi:/sys/kernel/debug/tracing# /home/pi/raspberry_4_usb_bug/bug_usb_pi4 verbose exit_on_error
+this is a simple program that exhibit a bug in the USB stack
+of the Raspberry PI Zero and any Yoctopuce device
+1:verbose
+Enable verbose mode
+2:exit_on_error
+Enable exit_on_error mode
+Use libUSB v1.0.22.11312
+List all Yoctopuce devices present on this host:
+[3 usb devices present]
+[parse device 0 = 1D6B:3]
+[parse device 1 = 24E0:C]
+ - USB dev: RELAYLO1-81215 (24E0:C:0)
+[parse device 2 = 2109:3431]
+[parse device 3 = 1D6B:2]
+1 Yoctopuce devices are present
+\ Test device RELAYLO1-81215 (24E0:C)
+- need to detach kernel driver
++ Send USB pkt no 0
+No USB pkt received after 5 second
+Exit immediately
+root@raspberrypi:/sys/kernel/debug/tracing# cat trace > /home/pi/raspberry_4_usb_bug/usb_traces/xhci-hcd_trace_kill.txt
+root@raspberrypi:/sys/kernel/debug/tracing#

@@ -112,9 +112,9 @@ static int ySetErrEx(unsigned line, char *intro, int err)
         break;
     }
     if (intro) {
-        printf("%s:%s", intro, msg);
+        printf("%s:%s\n", intro, msg);
     } else {
-        printf("LIN(%d):%s", line, msg);
+        printf("LIN(%d):%s\n", line, msg);
     }
     return err;
 }
@@ -269,12 +269,21 @@ int main(int argc, char* argv[])
     int             returnval = 0;
     unsigned             alloc_size;
     yInterfaceSt    *iface, *ifaces;
+    int exit_on_error = 0;
 
     printf("this is a simple program that exhibit a bug in the USB stack\n");
     printf("of the Raspberry PI Zero and any Yoctopuce device\n");
 
-    if (argc > 1 && argv[1]){
-        verbose = 1;
+    for (i = 1 ; i < argc; i++) {
+        printf("%d:%s\n",i, argv[i]);
+        if(strcmp(argv[i],"verbose")==0){
+            printf("Enable verbose mode\n");
+            verbose=1;
+        }
+        if(strcmp(argv[i],"exit_on_error")==0){
+            printf("Enable exit_on_error mode\n");
+            exit_on_error=1;
+        }
     }
 
     // init libUSB
@@ -331,7 +340,7 @@ int main(int argc, char* argv[])
         iface->devref   = libusb_ref_device(dev);
         res = libusb_open(dev, &hdl);
         if (res == LIBUSB_ERROR_ACCESS) {
-            printf("the user has insufficient permissions to access USB devices");
+            printf("the user has insufficient permissions to access USB devices\n");
             return -1;
         }
         if (res != 0) {
@@ -419,10 +428,20 @@ int main(int argc, char* argv[])
             iface->sent_pkt++;
             // wait 1 second
             memset(&tv, 0, sizeof(tv));
-            tv.tv_sec = 1;
+            tv.tv_sec = 5;
             res = libusb_handle_events_timeout(libusb, &tv);
             if (res < 0) {
                 return ySetErr("libusb_handle_events_timeout", res);
+            }
+
+            if (iface->sent_pkt != iface->received_pkt) {
+                printf("No USB pkt received after 5 second\n");
+                if (exit_on_error) {
+                    printf("Exit immediately\n");
+                    return 1;
+                }
+
+                break;
             }
         }
 

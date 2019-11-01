@@ -1,0 +1,841 @@
+# tracer: nop
+#
+# entries-in-buffer/entries-written: 830/830   #P:4
+#
+#                              _-----=> irqs-off
+#                             / _----=> need-resched
+#                            | / _---=> hardirq/softirq
+#                            || / _--=> preempt-depth
+#                            ||| /     delay
+#           TASK-PID   CPU#  ||||    TIMESTAMP  FUNCTION
+#              | |       |   ||||       |         |
+          <idle>-0     [000] d.h.  3355.528796: xhci_handle_event: EVENT: TRB 0000000001000000 status 'Success' len 0 slot 0 ep 0 type 'Port Status Change Event' flags e:C
+          <idle>-0     [000] d.h.  3355.528805: xhci_handle_port_status: port-0: Powered Connected Enabled Link:Resume PortSpeed:3 Change: PLC Wake: WDE WOE 
+          <idle>-0     [000] dnh.  3355.528822: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed07f80(0x000000001ed07000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.528878: xhci_get_port_status: port-0: Powered Connected Enabled Link:Resume PortSpeed:3 Change: Wake: 
+          <idle>-0     [000] d.s.  3355.571980: xhci_hub_status_data: port-0: Powered Connected Enabled Link:Resume PortSpeed:3 Change: Wake: 
+     kworker/0:1-920   [000] d...  3355.572049: xhci_get_port_status: port-0: Powered Connected Enabled Link:Resume PortSpeed:3 Change: Wake: 
+          <idle>-0     [000] d.h.  3355.572477: xhci_handle_event: EVENT: TRB 0000000001000000 status 'Success' len 0 slot 0 ep 0 type 'Port Status Change Event' flags e:C
+          <idle>-0     [000] d.h.  3355.572480: xhci_handle_port_status: port-0: Powered Connected Enabled Link:U0 PortSpeed:3 Change: PLC Wake: 
+          <idle>-0     [000] dnh.  3355.572488: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed07f90(0x000000001ed07000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.602026: xhci_get_port_status: port-0: Powered Connected Enabled Link:U0 PortSpeed:3 Change: Wake: 
+     kworker/0:1-920   [000] ....  3355.602077: xhci_urb_enqueue: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 0/2 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3355.602082: xhci_queue_trb: CTRL: bRequestType 80 bRequest 00 wValue 0000 wIndex 0000 wLength 2 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3355.602085: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed312c0(0x000000001ed31000) deq 0x000000001ed312b0(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.602086: xhci_queue_trb: CTRL: Buffer 0000000019d8d9c0 length 2 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:c
+     kworker/0:1-920   [000] d...  3355.602088: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed312d0(0x000000001ed31000) deq 0x000000001ed312b0(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.602089: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3355.602091: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed312e0(0x000000001ed31000) deq 0x000000001ed312b0(0x000000001ed31000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.602202: xhci_handle_event: EVENT: TRB 000000001ed312d0 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.602206: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3355.602210: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed312e0(0x000000001ed31000) deq 0x000000001ed312c0(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.602211: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed312e0(0x000000001ed31000) deq 0x000000001ed312d0(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.602213: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed312e0(0x000000001ed31000) deq 0x000000001ed312e0(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.602216: xhci_urb_giveback: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 2/2 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.602228: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed07fa0(0x000000001ed07000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.602255: xhci_urb_enqueue: ep0out-control: urb 6d24e591 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+     kworker/0:1-920   [000] d...  3355.602258: xhci_queue_trb: CTRL: bRequestType 00 bRequest 01 wValue 0001 wIndex 0000 wLength 0 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3355.602260: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed312f0(0x000000001ed31000) deq 0x000000001ed312e0(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.602262: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3355.602263: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31300(0x000000001ed31000) deq 0x000000001ed312e0(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.602542: xhci_handle_event: EVENT: TRB 000000001ed312f0 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.602545: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3355.602548: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31300(0x000000001ed31000) deq 0x000000001ed312f0(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.602549: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31300(0x000000001ed31000) deq 0x000000001ed31300(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.602552: xhci_urb_giveback: ep0out-control: urb 6d24e591 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+          <idle>-0     [000] dnh.  3355.602561: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed07fb0(0x000000001ed07000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.602590: xhci_urb_enqueue: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 0/4 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3355.602593: xhci_queue_trb: CTRL: bRequestType a3 bRequest 00 wValue 0000 wIndex 0001 wLength 4 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3355.602595: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31310(0x000000001ed31000) deq 0x000000001ed31300(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.602596: xhci_queue_trb: CTRL: Buffer 000000001c41ba00 length 4 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:c
+     kworker/0:1-920   [000] d...  3355.602598: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31320(0x000000001ed31000) deq 0x000000001ed31300(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.602599: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3355.602601: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31330(0x000000001ed31000) deq 0x000000001ed31300(0x000000001ed31000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.602909: xhci_handle_event: EVENT: TRB 000000001ed31320 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.602912: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3355.602915: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31330(0x000000001ed31000) deq 0x000000001ed31310(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.602916: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31330(0x000000001ed31000) deq 0x000000001ed31320(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.602918: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31330(0x000000001ed31000) deq 0x000000001ed31330(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.602920: xhci_urb_giveback: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 4/4 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.602930: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed07fc0(0x000000001ed07000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.602957: xhci_urb_enqueue: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 0/4 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3355.602960: xhci_queue_trb: CTRL: bRequestType a3 bRequest 00 wValue 0000 wIndex 0002 wLength 4 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3355.602962: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31340(0x000000001ed31000) deq 0x000000001ed31330(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.602963: xhci_queue_trb: CTRL: Buffer 000000001c41ba00 length 4 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:c
+     kworker/0:1-920   [000] d...  3355.602965: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31350(0x000000001ed31000) deq 0x000000001ed31330(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.602966: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3355.602968: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31360(0x000000001ed31000) deq 0x000000001ed31330(0x000000001ed31000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.603275: xhci_handle_event: EVENT: TRB 000000001ed31350 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.603278: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3355.603281: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31360(0x000000001ed31000) deq 0x000000001ed31340(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.603283: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31360(0x000000001ed31000) deq 0x000000001ed31350(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.603284: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31360(0x000000001ed31000) deq 0x000000001ed31360(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.603286: xhci_urb_giveback: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 4/4 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.603296: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed07fd0(0x000000001ed07000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.603322: xhci_urb_enqueue: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 0/4 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3355.603325: xhci_queue_trb: CTRL: bRequestType a3 bRequest 00 wValue 0000 wIndex 0003 wLength 4 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3355.603327: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31370(0x000000001ed31000) deq 0x000000001ed31360(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.603328: xhci_queue_trb: CTRL: Buffer 000000001c41ba00 length 4 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:c
+     kworker/0:1-920   [000] d...  3355.603330: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31380(0x000000001ed31000) deq 0x000000001ed31360(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.603331: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3355.603333: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31390(0x000000001ed31000) deq 0x000000001ed31360(0x000000001ed31000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.603639: xhci_handle_event: EVENT: TRB 000000001ed31380 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.603642: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3355.603645: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31390(0x000000001ed31000) deq 0x000000001ed31370(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.603647: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31390(0x000000001ed31000) deq 0x000000001ed31380(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.603650: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31390(0x000000001ed31000) deq 0x000000001ed31390(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.603652: xhci_urb_giveback: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 4/4 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.603663: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed07fe0(0x000000001ed07000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.603689: xhci_urb_enqueue: ep0out-control: urb 6d24e591 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+     kworker/0:1-920   [000] d...  3355.603692: xhci_queue_trb: CTRL: bRequestType 23 bRequest 01 wValue 0010 wIndex 0003 wLength 0 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3355.603693: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed313a0(0x000000001ed31000) deq 0x000000001ed31390(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.603695: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3355.603696: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed313b0(0x000000001ed31000) deq 0x000000001ed31390(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.604002: xhci_handle_event: EVENT: TRB 000000001ed313a0 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.604005: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3355.604008: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed313b0(0x000000001ed31000) deq 0x000000001ed313a0(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.604009: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed313b0(0x000000001ed31000) deq 0x000000001ed313b0(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.604012: xhci_urb_giveback: ep0out-control: urb 6d24e591 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+          <idle>-0     [000] dnh.  3355.604021: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed07ff0(0x000000001ed07000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.604047: xhci_urb_enqueue: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 0/4 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3355.604049: xhci_queue_trb: CTRL: bRequestType a3 bRequest 00 wValue 0000 wIndex 0004 wLength 4 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3355.604051: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed313c0(0x000000001ed31000) deq 0x000000001ed313b0(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.604053: xhci_queue_trb: CTRL: Buffer 000000001c41ba00 length 4 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:c
+     kworker/0:1-920   [000] d...  3355.604055: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed313d0(0x000000001ed31000) deq 0x000000001ed313b0(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.604056: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3355.604058: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed313e0(0x000000001ed31000) deq 0x000000001ed313b0(0x000000001ed31000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.604372: xhci_handle_event: EVENT: TRB 000000001ed313d0 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.604375: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3355.604378: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed313e0(0x000000001ed31000) deq 0x000000001ed313c0(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.604379: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed313e0(0x000000001ed31000) deq 0x000000001ed313d0(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.604380: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed313e0(0x000000001ed31000) deq 0x000000001ed313e0(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.604383: xhci_urb_giveback: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 4/4 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.604392: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08000(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.722028: xhci_urb_enqueue: ep1in-intr: urb 7984ecd4 pipe 1077969536 slot 1 length 0/1 sgs 0/0 stream 0 flags 00010200
+     kworker/0:1-920   [000] d...  3355.722034: xhci_queue_trb: INTR: Buffer 000000001c41b940 length 1 TD size 0 intr 0 type 'Normal' flags b:i:I:c:s:I:e:c
+     kworker/0:1-920   [000] d...  3355.722036: xhci_inc_enq: INTR 233e78a8: enq 0x000000001ed33120(0x000000001ed33000) deq 0x000000001ed33110(0x000000001ed33000) segs 2 stream 0 free_trbs 508 bounce 1 cycle 1
+     kworker/0:1-920   [000] ....  3355.722073: xhci_urb_enqueue: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 0/4 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3355.722076: xhci_queue_trb: CTRL: bRequestType a3 bRequest 00 wValue 0000 wIndex 0003 wLength 4 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3355.722078: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed313f0(0x000000001ed31000) deq 0x000000001ed313e0(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.722080: xhci_queue_trb: CTRL: Buffer 000000001c41ba00 length 4 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:c
+     kworker/0:1-920   [000] d...  3355.722081: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31400(0x000000001ed31000) deq 0x000000001ed313e0(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.722083: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3355.722084: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31410(0x000000001ed31000) deq 0x000000001ed313e0(0x000000001ed31000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.722240: xhci_handle_event: EVENT: TRB 000000001ed31400 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.722243: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3355.722246: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31410(0x000000001ed31000) deq 0x000000001ed313f0(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.722247: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31410(0x000000001ed31000) deq 0x000000001ed31400(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.722249: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31410(0x000000001ed31000) deq 0x000000001ed31410(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.722251: xhci_urb_giveback: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 4/4 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.722263: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08010(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.722289: xhci_urb_enqueue: ep0out-control: urb 6d24e591 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+     kworker/0:1-920   [000] d...  3355.722292: xhci_queue_trb: CTRL: bRequestType 23 bRequest 03 wValue 0016 wIndex 0003 wLength 0 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3355.722294: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31420(0x000000001ed31000) deq 0x000000001ed31410(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.722295: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3355.722297: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31430(0x000000001ed31000) deq 0x000000001ed31410(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.722609: xhci_handle_event: EVENT: TRB 000000001ed31420 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.722612: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3355.722614: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31430(0x000000001ed31000) deq 0x000000001ed31420(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.722616: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31430(0x000000001ed31000) deq 0x000000001ed31430(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.722618: xhci_urb_giveback: ep0out-control: urb 6d24e591 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+          <idle>-0     [000] dnh.  3355.722627: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08020(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.722656: xhci_queue_trb: CMD: Enable Slot Command: flags C
+     kworker/0:1-920   [000] d...  3355.722658: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03d80(0x000000001ed03000) deq 0x000000001ed03d70(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.722700: xhci_handle_event: EVENT: TRB 000000001ed03d70 status 'Success' len 0 slot 2 ep 0 type 'Command Completion Event' flags e:C
+          <idle>-0     [000] d.h.  3355.722703: xhci_handle_command: CMD: Enable Slot Command: flags C
+          <idle>-0     [000] dnh.  3355.722712: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03d80(0x000000001ed03000) deq 0x000000001ed03d80(0x000000001ed03000) segs 1 stream 0 free_trbs 254 bounce 0 cycle 1
+          <idle>-0     [000] dnh.  3355.722713: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08030(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.722757: xhci_ring_alloc: CTRL 62bc4327: enq 0x000000001ed3d000(0x000000001ed3d000) deq 0x000000001ed3d000(0x000000001ed3d000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.722759: xhci_alloc_virt_device: vdev 76b3542c ctx 1ed37000 | 1ec01000 num 0 state 0 speed 0 port 0 level 0 slot 0
+     kworker/0:1-920   [000] ....  3355.722762: xhci_alloc_dev: RS 00000 UNKNOWN speed Ctx Entries 0 MEL 0 us Port# 0/0 [TT Slot 0 Port# 0 TTT 0 Intr 0] Addr 0 State enabled/disabled
+     kworker/0:1-920   [000] ....  3355.722877: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+     kworker/0:1-920   [000] d...  3355.722880: xhci_queue_trb: CTRL: bRequestType 23 bRequest 03 wValue 0004 wIndex 0003 wLength 0 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3355.722882: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31440(0x000000001ed31000) deq 0x000000001ed31430(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.722884: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3355.722885: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31450(0x000000001ed31000) deq 0x000000001ed31430(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.723048: xhci_handle_event: EVENT: TRB 000000001ed31440 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.723051: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3355.723053: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31450(0x000000001ed31000) deq 0x000000001ed31440(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.723055: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31450(0x000000001ed31000) deq 0x000000001ed31450(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.723057: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+          <idle>-0     [000] dnh.  3355.723067: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08040(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.752025: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147484288 slot 1 length 0/4 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3355.752029: xhci_queue_trb: CTRL: bRequestType a3 bRequest 00 wValue 0000 wIndex 0003 wLength 4 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3355.752031: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31460(0x000000001ed31000) deq 0x000000001ed31450(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.752032: xhci_queue_trb: CTRL: Buffer 000000001c41ba00 length 4 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:c
+     kworker/0:1-920   [000] d...  3355.752034: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31470(0x000000001ed31000) deq 0x000000001ed31450(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.752035: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3355.752037: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31480(0x000000001ed31000) deq 0x000000001ed31450(0x000000001ed31000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.752173: xhci_handle_event: EVENT: TRB 000000001ed31470 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.752176: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3355.752179: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31480(0x000000001ed31000) deq 0x000000001ed31460(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.752181: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31480(0x000000001ed31000) deq 0x000000001ed31470(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.752182: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31480(0x000000001ed31000) deq 0x000000001ed31480(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.752184: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147484288 slot 1 length 4/4 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.752195: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08050(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.752221: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+     kworker/0:1-920   [000] d...  3355.752223: xhci_queue_trb: CTRL: bRequestType 23 bRequest 01 wValue 0014 wIndex 0003 wLength 0 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3355.752225: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31490(0x000000001ed31000) deq 0x000000001ed31480(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.752227: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3355.752228: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed314a0(0x000000001ed31000) deq 0x000000001ed31480(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.752316: xhci_handle_event: EVENT: TRB 000000001ed31490 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.752319: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3355.752321: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed314a0(0x000000001ed31000) deq 0x000000001ed31490(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.752323: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed314a0(0x000000001ed31000) deq 0x000000001ed314a0(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.752325: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+          <idle>-0     [000] dnh.  3355.752334: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08060(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+          <idle>-0     [000] dns.  3355.821994: xhci_hub_status_data: port-0: Powered Connected Enabled Link:U0 PortSpeed:3 Change: Wake: 
+     kworker/0:1-920   [000] ....  3355.822061: xhci_setup_device_slot: RS 00000 UNKNOWN speed Ctx Entries 0 MEL 0 us Port# 0/0 [TT Slot 0 Port# 0 TTT 0 Intr 0] Addr 0 State enabled/disabled
+     kworker/0:1-920   [000] ....  3355.822066: xhci_setup_addressable_virt_device: vdev 76b3542c ctx 1ed37000 | 1ec01000 num 0 state 5 speed 2 port 3 level 2 slot 2
+     kworker/0:1-920   [000] ....  3355.822069: xhci_address_ctx: ctx_64=0, ctx_type=2, ctx_dma=@1ed37000, ctx_va=@ef7178d4
+     kworker/0:1-920   [000] d...  3355.822071: xhci_setup_device: vdev 76b3542c ctx 1ed37000 | 1ec01000 num 0 state 5 speed 2 port 3 level 2 slot 2
+     kworker/0:1-920   [000] d...  3355.822075: xhci_queue_trb: CMD: Address Device Command: ctx 000000001ed37000 slot 2 flags B:C
+     kworker/0:1-920   [000] d...  3355.822077: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03d90(0x000000001ed03000) deq 0x000000001ed03d80(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.822191: xhci_handle_event: EVENT: TRB 000000001ed03d80 status 'Success' len 0 slot 2 ep 0 type 'Command Completion Event' flags e:C
+          <idle>-0     [000] d.h.  3355.822193: xhci_handle_command: CMD: Address Device Command: ctx 000000001ed37000 slot 2 flags B:C
+          <idle>-0     [000] d.h.  3355.822197: xhci_handle_cmd_addr_dev: RS 00003 full-speed Ctx Entries 1 MEL 0 us Port# 1/0 [TT Slot 1 Port# 3 TTT 0 Intr 0] Addr 0 State default
+          <idle>-0     [000] dnh.  3355.822204: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03d90(0x000000001ed03000) deq 0x000000001ed03d90(0x000000001ed03000) segs 1 stream 0 free_trbs 254 bounce 0 cycle 1
+          <idle>-0     [000] dnh.  3355.822205: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08070(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.822220: xhci_dbg_address: Successful setup context command
+     kworker/0:1-920   [000] ....  3355.822225: xhci_dbg_address: Op regs DCBAA ptr = 0x0000001ed02000
+     kworker/0:1-920   [000] ....  3355.822229: xhci_dbg_address: Slot ID 2 dcbaa entry @a195eaa1 = 0x0000001ec01000
+     kworker/0:1-920   [000] ....  3355.822238: xhci_dbg_address: Output Context DMA address = 0x1ec01000
+     kworker/0:1-920   [000] ....  3355.822241: xhci_address_ctx: ctx_64=0, ctx_type=2, ctx_dma=@1ed37000, ctx_va=@ef7178d4
+     kworker/0:1-920   [000] ....  3355.822243: xhci_address_ctx: ctx_64=0, ctx_type=1, ctx_dma=@1ec01000, ctx_va=@5c3494bf
+     kworker/0:1-920   [000] ....  3355.822245: xhci_dbg_address: Internal device address = 0
+     kworker/0:1-920   [000] ....  3355.822255: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147483776 slot 2 length 0/64 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3355.822259: xhci_queue_trb: CTRL: bRequestType 80 bRequest 06 wValue 0100 wIndex 0000 wLength 64 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:c
+     kworker/0:1-920   [000] d...  3355.822261: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d010(0x000000001ed3d000) deq 0x000000001ed3d000(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.822262: xhci_queue_trb: CTRL: Buffer 0000000019d8da80 length 64 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+     kworker/0:1-920   [000] d...  3355.822264: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d020(0x000000001ed3d000) deq 0x000000001ed3d000(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.822265: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+     kworker/0:1-920   [000] d...  3355.822267: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d030(0x000000001ed3d000) deq 0x000000001ed3d000(0x000000001ed3d000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.822625: xhci_handle_event: EVENT: TRB 000000001ed3d010 status 'Short Packet' len 56 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.822628: xhci_handle_transfer: CTRL: Buffer 0000000019d8da80 length 64 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+          <idle>-0     [000] d.h.  3355.822631: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08080(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.822875: xhci_handle_event: EVENT: TRB 000000001ed3d020 status 'Success' len 0 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.822877: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+          <idle>-0     [000] d.h.  3355.822880: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d030(0x000000001ed3d000) deq 0x000000001ed3d010(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.822882: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d030(0x000000001ed3d000) deq 0x000000001ed3d020(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.822883: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d030(0x000000001ed3d000) deq 0x000000001ed3d030(0x000000001ed3d000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.822886: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147483776 slot 2 length 8/64 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.822897: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08090(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.822919: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+     kworker/0:1-920   [000] d...  3355.822922: xhci_queue_trb: CTRL: bRequestType 23 bRequest 03 wValue 0004 wIndex 0003 wLength 0 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3355.822924: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed314b0(0x000000001ed31000) deq 0x000000001ed314a0(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.822925: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3355.822927: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed314c0(0x000000001ed31000) deq 0x000000001ed314a0(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.823040: xhci_handle_event: EVENT: TRB 000000001ed314b0 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.823043: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3355.823045: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed314c0(0x000000001ed31000) deq 0x000000001ed314b0(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.823047: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed314c0(0x000000001ed31000) deq 0x000000001ed314c0(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.823049: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+          <idle>-0     [000] dnh.  3355.823058: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed080a0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.852035: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147484288 slot 1 length 0/4 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3355.852041: xhci_queue_trb: CTRL: bRequestType a3 bRequest 00 wValue 0000 wIndex 0003 wLength 4 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3355.852043: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed314d0(0x000000001ed31000) deq 0x000000001ed314c0(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.852045: xhci_queue_trb: CTRL: Buffer 000000001c41ba00 length 4 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:c
+     kworker/0:1-920   [000] d...  3355.852047: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed314e0(0x000000001ed31000) deq 0x000000001ed314c0(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.852048: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3355.852050: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed314f0(0x000000001ed31000) deq 0x000000001ed314c0(0x000000001ed31000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.852178: xhci_handle_event: EVENT: TRB 000000001ed314e0 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.852182: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3355.852185: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed314f0(0x000000001ed31000) deq 0x000000001ed314d0(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.852186: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed314f0(0x000000001ed31000) deq 0x000000001ed314e0(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.852187: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed314f0(0x000000001ed31000) deq 0x000000001ed314f0(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.852190: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147484288 slot 1 length 4/4 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.852203: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed080b0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.852231: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+     kworker/0:1-920   [000] d...  3355.852234: xhci_queue_trb: CTRL: bRequestType 23 bRequest 01 wValue 0014 wIndex 0003 wLength 0 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3355.852236: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31500(0x000000001ed31000) deq 0x000000001ed314f0(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3355.852237: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3355.852239: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31510(0x000000001ed31000) deq 0x000000001ed314f0(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.852566: xhci_handle_event: EVENT: TRB 000000001ed31500 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.852569: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3355.852573: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31510(0x000000001ed31000) deq 0x000000001ed31500(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.852575: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31510(0x000000001ed31000) deq 0x000000001ed31510(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3355.852577: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+          <idle>-0     [000] dnh.  3355.852586: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed080c0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.922029: xhci_discover_or_reset_device: RS 00003 full-speed Ctx Entries 1 MEL 0 us Port# 1/0 [TT Slot 1 Port# 3 TTT 0 Intr 0] Addr 0 State default
+     kworker/0:1-920   [000] d...  3355.922037: xhci_queue_trb: CMD: Reset Device Command: slot 2 flags C
+     kworker/0:1-920   [000] d...  3355.922039: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03da0(0x000000001ed03000) deq 0x000000001ed03d90(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.922275: xhci_handle_event: EVENT: TRB 000000001ed03d90 status 'Success' len 0 slot 0 ep 0 type 'Command Completion Event' flags e:C
+          <idle>-0     [000] d.h.  3355.922278: xhci_handle_command: CMD: Reset Device Command: slot 2 flags C
+          <idle>-0     [000] d.h.  3355.922282: xhci_handle_cmd_reset_dev: RS 00003 full-speed Ctx Entries 1 MEL 0 us Port# 1/0 [TT Slot 1 Port# 3 TTT 0 Intr 0] Addr 0 State default
+          <idle>-0     [000] dnh.  3355.922288: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03da0(0x000000001ed03000) deq 0x000000001ed03da0(0x000000001ed03000) segs 1 stream 0 free_trbs 254 bounce 0 cycle 1
+          <idle>-0     [000] dnh.  3355.922290: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed080d0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.922316: xhci_setup_device_slot: RS 00003 full-speed Ctx Entries 1 MEL 0 us Port# 1/0 [TT Slot 1 Port# 3 TTT 0 Intr 0] Addr 0 State default
+     kworker/0:1-920   [000] ....  3355.922320: xhci_address_ctx: ctx_64=0, ctx_type=2, ctx_dma=@1ed37000, ctx_va=@ef7178d4
+     kworker/0:1-920   [000] d...  3355.922322: xhci_setup_device: vdev 76b3542c ctx 1ed37000 | 1ec01000 num 0 state 5 speed 2 port 3 level 2 slot 2
+     kworker/0:1-920   [000] d...  3355.922326: xhci_queue_trb: CMD: Address Device Command: ctx 000000001ed37000 slot 2 flags b:C
+     kworker/0:1-920   [000] d...  3355.922328: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03db0(0x000000001ed03000) deq 0x000000001ed03da0(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.922495: xhci_handle_event: EVENT: TRB 000000001ed03da0 status 'Success' len 0 slot 2 ep 0 type 'Command Completion Event' flags e:C
+          <idle>-0     [000] d.h.  3355.922498: xhci_handle_command: CMD: Address Device Command: ctx 000000001ed37000 slot 2 flags b:C
+          <idle>-0     [000] d.h.  3355.922502: xhci_handle_cmd_addr_dev: RS 00003 full-speed Ctx Entries 1 MEL 0 us Port# 1/0 [TT Slot 1 Port# 3 TTT 0 Intr 0] Addr 2 State addressed
+          <idle>-0     [000] dnh.  3355.922509: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03db0(0x000000001ed03000) deq 0x000000001ed03db0(0x000000001ed03000) segs 1 stream 0 free_trbs 254 bounce 0 cycle 1
+          <idle>-0     [000] dnh.  3355.922511: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed080e0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.922529: xhci_dbg_address: Successful setup address command
+     kworker/0:1-920   [000] ....  3355.922535: xhci_dbg_address: Op regs DCBAA ptr = 0x0000001ed02000
+     kworker/0:1-920   [000] ....  3355.922540: xhci_dbg_address: Slot ID 2 dcbaa entry @a195eaa1 = 0x0000001ec01000
+     kworker/0:1-920   [000] ....  3355.922546: xhci_dbg_address: Output Context DMA address = 0x1ec01000
+     kworker/0:1-920   [000] ....  3355.922549: xhci_address_ctx: ctx_64=0, ctx_type=2, ctx_dma=@1ed37000, ctx_va=@ef7178d4
+     kworker/0:1-920   [000] ....  3355.922551: xhci_address_ctx: ctx_64=0, ctx_type=1, ctx_dma=@1ec01000, ctx_va=@5c3494bf
+     kworker/0:1-920   [000] ....  3355.922554: xhci_dbg_address: Internal device address = 0
+     kworker/0:1-920   [000] ....  3355.952028: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 0/18 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] ....  3355.952031: xhci_dbg_context_change: Max Packet Size for ep 0 changed.
+     kworker/0:1-920   [000] ....  3355.952033: xhci_dbg_context_change: Max packet size in usb_device = 8
+     kworker/0:1-920   [000] ....  3355.952036: xhci_dbg_context_change: Max packet size in xHCI HW = 64
+     kworker/0:1-920   [000] ....  3355.952038: xhci_dbg_context_change: Issuing evaluate context command.
+     kworker/0:1-920   [000] d...  3355.952044: xhci_configure_endpoint: RS 00003 full-speed Ctx Entries 1 MEL 0 us Port# 1/0 [TT Slot 1 Port# 3 TTT 0 Intr 0] Addr 0 State enabled/disabled
+     kworker/0:1-920   [000] d...  3355.952049: xhci_queue_trb: CMD: Evaluate Context Command: ctx 000000001ed37000 slot 2 flags C
+     kworker/0:1-920   [000] d...  3355.952050: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03dc0(0x000000001ed03000) deq 0x000000001ed03db0(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.952154: xhci_handle_event: EVENT: TRB 000000001ed03db0 status 'Success' len 0 slot 2 ep 0 type 'Command Completion Event' flags e:C
+          <idle>-0     [000] d.h.  3355.952156: xhci_handle_command: CMD: Evaluate Context Command: ctx 000000001ed37000 slot 2 flags C
+          <idle>-0     [000] dnh.  3355.952164: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03dc0(0x000000001ed03000) deq 0x000000001ed03dc0(0x000000001ed03000) segs 1 stream 0 free_trbs 254 bounce 0 cycle 1
+          <idle>-0     [000] dnh.  3355.952166: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed080f0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.952184: xhci_dbg_context_change: Successful evaluate context command
+     kworker/0:1-920   [000] d...  3355.952190: xhci_queue_trb: CTRL: bRequestType 80 bRequest 06 wValue 0100 wIndex 0000 wLength 18 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:c
+     kworker/0:1-920   [000] d...  3355.952192: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d040(0x000000001ed3d000) deq 0x000000001ed3d030(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.952193: xhci_queue_trb: CTRL: Buffer 0000000019d8da80 length 18 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+     kworker/0:1-920   [000] d...  3355.952195: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d050(0x000000001ed3d000) deq 0x000000001ed3d030(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.952196: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+     kworker/0:1-920   [000] d...  3355.952198: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d060(0x000000001ed3d000) deq 0x000000001ed3d030(0x000000001ed3d000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.953271: xhci_handle_event: EVENT: TRB 000000001ed3d050 status 'Success' len 0 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.953274: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+          <idle>-0     [000] d.h.  3355.953277: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d060(0x000000001ed3d000) deq 0x000000001ed3d040(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.953278: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d060(0x000000001ed3d000) deq 0x000000001ed3d050(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.953281: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d060(0x000000001ed3d000) deq 0x000000001ed3d060(0x000000001ed3d000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.953284: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 18/18 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.953295: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08100(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.953331: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 0/10 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3355.953334: xhci_queue_trb: CTRL: bRequestType 80 bRequest 06 wValue 0600 wIndex 0000 wLength 10 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:c
+     kworker/0:1-920   [000] d...  3355.953336: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d070(0x000000001ed3d000) deq 0x000000001ed3d060(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.953338: xhci_queue_trb: CTRL: Buffer 0000000019d8da80 length 10 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+     kworker/0:1-920   [000] d...  3355.953339: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d080(0x000000001ed3d000) deq 0x000000001ed3d060(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.953341: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+     kworker/0:1-920   [000] d...  3355.953342: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d090(0x000000001ed3d000) deq 0x000000001ed3d060(0x000000001ed3d000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.953835: xhci_handle_event: EVENT: TRB 000000001ed3d070 status 'Stall Error' len 10 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.953837: xhci_handle_transfer: CTRL: Buffer 0000000019d8da80 length 10 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+          <idle>-0     [000] d.h.  3355.953845: xhci_queue_trb: CMD: Reset Endpoint Command: ctx 0000000000000000 slot 2 ep 1 flags C
+          <idle>-0     [000] d.h.  3355.953846: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03dd0(0x000000001ed03000) deq 0x000000001ed03dc0(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.953849: xhci_dbg_reset_ep: Cleaning up stalled endpoint ring
+          <idle>-0     [000] d.h.  3355.953851: xhci_dbg_cancel_urb: Finding endpoint context
+          <idle>-0     [000] d.h.  3355.953855: xhci_dbg_cancel_urb: Cycle state = 0x1
+          <idle>-0     [000] d.h.  3355.953858: xhci_dbg_cancel_urb: New dequeue segment = f99f1217 (virtual)
+          <idle>-0     [000] d.h.  3355.953862: xhci_dbg_cancel_urb: New dequeue pointer = 0x1ed3d090 (DMA)
+          <idle>-0     [000] d.h.  3355.953865: xhci_dbg_reset_ep: Queueing new dequeue state
+          <idle>-0     [000] d.h.  3355.953868: xhci_dbg_cancel_urb: Set TR Deq Ptr cmd, new deq seg = f99f1217 (0x1ed3d000 dma), new deq ptr = 0981187d (0x1ed3d090 dma), new cycle = 1
+          <idle>-0     [000] d.h.  3355.953876: xhci_queue_trb: CMD: Set TR Dequeue Pointer Command: deq 000000001ed3d091 stream 0 slot 2 ep 1 flags C
+          <idle>-0     [000] d.h.  3355.953878: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03de0(0x000000001ed03000) deq 0x000000001ed03dc0(0x000000001ed03000) segs 1 stream 0 free_trbs 252 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.953882: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 0/10 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.953893: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08110(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.953919: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 0/10 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3355.953922: xhci_queue_trb: CTRL: bRequestType 80 bRequest 06 wValue 0600 wIndex 0000 wLength 10 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:c
+     kworker/0:1-920   [000] d...  3355.953924: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d0a0(0x000000001ed3d000) deq 0x000000001ed3d060(0x000000001ed3d000) segs 2 stream 0 free_trbs 505 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.953926: xhci_queue_trb: CTRL: Buffer 0000000019d8da80 length 10 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+     kworker/0:1-920   [000] d...  3355.953928: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d0b0(0x000000001ed3d000) deq 0x000000001ed3d060(0x000000001ed3d000) segs 2 stream 0 free_trbs 504 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.953929: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+     kworker/0:1-920   [000] d...  3355.953930: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d0c0(0x000000001ed3d000) deq 0x000000001ed3d060(0x000000001ed3d000) segs 2 stream 0 free_trbs 503 bounce 0 cycle 1
+     kworker/0:1-920   [000] d.h.  3355.953937: xhci_handle_event: EVENT: TRB 000000001ed03dc0 status 'Success' len 0 slot 2 ep 0 type 'Command Completion Event' flags e:C
+     kworker/0:1-920   [000] d.h.  3355.953939: xhci_handle_command: CMD: Reset Endpoint Command: ctx 0000000000000000 slot 2 ep 1 flags C
+     kworker/0:1-920   [000] d.h.  3355.953943: xhci_handle_cmd_reset_ep: State stopped mult 1 max P. Streams 0 interval 125 us max ESIT payload 0 CErr 3 Type Ctrl burst 0 maxp 8 deq 000000001ed3d071 avg trb len 0
+     kworker/0:1-920   [000] d.h.  3355.953945: xhci_dbg_reset_ep: Ignoring reset ep completion code of 1
+     kworker/0:1-920   [000] d.h.  3355.953950: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03de0(0x000000001ed03000) deq 0x000000001ed03dd0(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+     kworker/0:1-920   [000] d.h.  3355.953951: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08120(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.953980: xhci_handle_event: EVENT: TRB 000000001ed03dd0 status 'Success' len 0 slot 2 ep 0 type 'Command Completion Event' flags e:C
+          <idle>-0     [000] d.h.  3355.953982: xhci_handle_command: CMD: Set TR Dequeue Pointer Command: deq 000000001ed3d091 stream 0 slot 2 ep 1 flags C
+          <idle>-0     [000] d.h.  3355.953986: xhci_handle_cmd_set_deq: RS 00003 full-speed Ctx Entries 1 MEL 0 us Port# 1/0 [TT Slot 1 Port# 3 TTT 0 Intr 0] Addr 2 State addressed
+          <idle>-0     [000] d.h.  3355.953987: xhci_handle_cmd_set_deq_ep: State stopped mult 1 max P. Streams 0 interval 125 us max ESIT payload 0 CErr 3 Type Ctrl burst 0 maxp 8 deq 000000001ed3d091 avg trb len 0
+          <idle>-0     [000] d.h.  3355.953989: xhci_dbg_cancel_urb: Successful Set TR Deq Ptr cmd, deq = @1ed3d090
+          <idle>-0     [000] d.h.  3355.953995: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03de0(0x000000001ed03000) deq 0x000000001ed03de0(0x000000001ed03000) segs 1 stream 0 free_trbs 254 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.953996: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08130(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.954463: xhci_handle_event: EVENT: TRB 000000001ed3d0a0 status 'Stall Error' len 10 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.954466: xhci_handle_transfer: CTRL: Buffer 0000000019d8da80 length 10 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+          <idle>-0     [000] d.h.  3355.954472: xhci_queue_trb: CMD: Reset Endpoint Command: ctx 0000000000000000 slot 2 ep 1 flags C
+          <idle>-0     [000] d.h.  3355.954474: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03df0(0x000000001ed03000) deq 0x000000001ed03de0(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.954476: xhci_dbg_reset_ep: Cleaning up stalled endpoint ring
+          <idle>-0     [000] d.h.  3355.954478: xhci_dbg_cancel_urb: Finding endpoint context
+          <idle>-0     [000] d.h.  3355.954482: xhci_dbg_cancel_urb: Cycle state = 0x1
+          <idle>-0     [000] d.h.  3355.954485: xhci_dbg_cancel_urb: New dequeue segment = f99f1217 (virtual)
+          <idle>-0     [000] d.h.  3355.954488: xhci_dbg_cancel_urb: New dequeue pointer = 0x1ed3d0c0 (DMA)
+          <idle>-0     [000] d.h.  3355.954491: xhci_dbg_reset_ep: Queueing new dequeue state
+          <idle>-0     [000] d.h.  3355.954493: xhci_dbg_cancel_urb: Set TR Deq Ptr cmd, new deq seg = f99f1217 (0x1ed3d000 dma), new deq ptr = e617d53b (0x1ed3d0c0 dma), new cycle = 1
+          <idle>-0     [000] d.h.  3355.954499: xhci_queue_trb: CMD: Set TR Dequeue Pointer Command: deq 000000001ed3d0c1 stream 0 slot 2 ep 1 flags C
+          <idle>-0     [000] d.h.  3355.954501: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03e00(0x000000001ed03000) deq 0x000000001ed03de0(0x000000001ed03000) segs 1 stream 0 free_trbs 252 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.954505: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 0/10 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.954515: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08140(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.954541: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 0/10 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d.h.  3355.954547: xhci_handle_event: EVENT: TRB 000000001ed03de0 status 'Success' len 0 slot 2 ep 0 type 'Command Completion Event' flags e:C
+     kworker/0:1-920   [000] d.h.  3355.954549: xhci_handle_command: CMD: Reset Endpoint Command: ctx 0000000000000000 slot 2 ep 1 flags C
+     kworker/0:1-920   [000] d.h.  3355.954553: xhci_handle_cmd_reset_ep: State stopped mult 1 max P. Streams 0 interval 125 us max ESIT payload 0 CErr 3 Type Ctrl burst 0 maxp 8 deq 000000001ed3d0a1 avg trb len 0
+     kworker/0:1-920   [000] d.h.  3355.954554: xhci_dbg_reset_ep: Ignoring reset ep completion code of 1
+     kworker/0:1-920   [000] d.h.  3355.954560: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03e00(0x000000001ed03000) deq 0x000000001ed03df0(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+     kworker/0:1-920   [000] d.h.  3355.954561: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08150(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.954569: xhci_queue_trb: CTRL: bRequestType 80 bRequest 06 wValue 0600 wIndex 0000 wLength 10 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:c
+     kworker/0:1-920   [000] d...  3355.954571: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d0d0(0x000000001ed3d000) deq 0x000000001ed3d090(0x000000001ed3d000) segs 2 stream 0 free_trbs 505 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.954572: xhci_queue_trb: CTRL: Buffer 0000000019d8da80 length 10 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+     kworker/0:1-920   [000] d...  3355.954574: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d0e0(0x000000001ed3d000) deq 0x000000001ed3d090(0x000000001ed3d000) segs 2 stream 0 free_trbs 504 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.954575: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+     kworker/0:1-920   [000] d...  3355.954577: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d0f0(0x000000001ed3d000) deq 0x000000001ed3d090(0x000000001ed3d000) segs 2 stream 0 free_trbs 503 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.954592: xhci_handle_event: EVENT: TRB 000000001ed03df0 status 'Success' len 0 slot 2 ep 0 type 'Command Completion Event' flags e:C
+          <idle>-0     [000] d.h.  3355.954594: xhci_handle_command: CMD: Set TR Dequeue Pointer Command: deq 000000001ed3d0c1 stream 0 slot 2 ep 1 flags C
+          <idle>-0     [000] d.h.  3355.954599: xhci_handle_cmd_set_deq: RS 00003 full-speed Ctx Entries 1 MEL 0 us Port# 1/0 [TT Slot 1 Port# 3 TTT 0 Intr 0] Addr 2 State addressed
+          <idle>-0     [000] d.h.  3355.954600: xhci_handle_cmd_set_deq_ep: State stopped mult 1 max P. Streams 0 interval 125 us max ESIT payload 0 CErr 3 Type Ctrl burst 0 maxp 8 deq 000000001ed3d0c1 avg trb len 0
+          <idle>-0     [000] d.h.  3355.954602: xhci_dbg_cancel_urb: Successful Set TR Deq Ptr cmd, deq = @1ed3d0c0
+          <idle>-0     [000] d.h.  3355.954607: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03e00(0x000000001ed03000) deq 0x000000001ed03e00(0x000000001ed03000) segs 1 stream 0 free_trbs 254 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.954608: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08160(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.955089: xhci_handle_event: EVENT: TRB 000000001ed3d0d0 status 'Stall Error' len 10 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.955092: xhci_handle_transfer: CTRL: Buffer 0000000019d8da80 length 10 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+          <idle>-0     [000] d.h.  3355.955098: xhci_queue_trb: CMD: Reset Endpoint Command: ctx 0000000000000000 slot 2 ep 1 flags C
+          <idle>-0     [000] d.h.  3355.955100: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03e10(0x000000001ed03000) deq 0x000000001ed03e00(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.955102: xhci_dbg_reset_ep: Cleaning up stalled endpoint ring
+          <idle>-0     [000] d.h.  3355.955103: xhci_dbg_cancel_urb: Finding endpoint context
+          <idle>-0     [000] d.h.  3355.955106: xhci_dbg_cancel_urb: Cycle state = 0x1
+          <idle>-0     [000] d.h.  3355.955108: xhci_dbg_cancel_urb: New dequeue segment = f99f1217 (virtual)
+          <idle>-0     [000] d.h.  3355.955112: xhci_dbg_cancel_urb: New dequeue pointer = 0x1ed3d0f0 (DMA)
+          <idle>-0     [000] d.h.  3355.955114: xhci_dbg_reset_ep: Queueing new dequeue state
+          <idle>-0     [000] d.h.  3355.955118: xhci_dbg_cancel_urb: Set TR Deq Ptr cmd, new deq seg = f99f1217 (0x1ed3d000 dma), new deq ptr = c3fbfa18 (0x1ed3d0f0 dma), new cycle = 1
+          <idle>-0     [000] d.h.  3355.955124: xhci_queue_trb: CMD: Set TR Dequeue Pointer Command: deq 000000001ed3d0f1 stream 0 slot 2 ep 1 flags C
+          <idle>-0     [000] d.h.  3355.955125: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03e20(0x000000001ed03000) deq 0x000000001ed03e00(0x000000001ed03000) segs 1 stream 0 free_trbs 252 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.955129: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 0/10 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.955140: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08170(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] d.h.  3355.955172: xhci_handle_event: EVENT: TRB 000000001ed03e00 status 'Success' len 0 slot 2 ep 0 type 'Command Completion Event' flags e:C
+     kworker/0:1-920   [000] d.h.  3355.955174: xhci_handle_command: CMD: Reset Endpoint Command: ctx 0000000000000000 slot 2 ep 1 flags C
+     kworker/0:1-920   [000] d.h.  3355.955178: xhci_handle_cmd_reset_ep: State stopped mult 1 max P. Streams 0 interval 125 us max ESIT payload 0 CErr 3 Type Ctrl burst 0 maxp 8 deq 000000001ed3d0d1 avg trb len 0
+     kworker/0:1-920   [000] d.h.  3355.955179: xhci_dbg_reset_ep: Ignoring reset ep completion code of 1
+     kworker/0:1-920   [000] d.h.  3355.955184: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03e20(0x000000001ed03000) deq 0x000000001ed03e10(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+     kworker/0:1-920   [000] d.h.  3355.955185: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08180(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.955201: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 0/9 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3355.955204: xhci_queue_trb: CTRL: bRequestType 80 bRequest 06 wValue 0200 wIndex 0000 wLength 9 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:c
+     kworker/0:1-920   [000] d...  3355.955206: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d100(0x000000001ed3d000) deq 0x000000001ed3d0c0(0x000000001ed3d000) segs 2 stream 0 free_trbs 505 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.955207: xhci_queue_trb: CTRL: Buffer 0000000019d8da80 length 9 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+     kworker/0:1-920   [000] d...  3355.955209: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d110(0x000000001ed3d000) deq 0x000000001ed3d0c0(0x000000001ed3d000) segs 2 stream 0 free_trbs 504 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.955210: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+     kworker/0:1-920   [000] d...  3355.955212: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d120(0x000000001ed3d000) deq 0x000000001ed3d0c0(0x000000001ed3d000) segs 2 stream 0 free_trbs 503 bounce 0 cycle 1
+     kworker/0:1-920   [000] d.h.  3355.955218: xhci_handle_event: EVENT: TRB 000000001ed03e10 status 'Success' len 0 slot 2 ep 0 type 'Command Completion Event' flags e:C
+     kworker/0:1-920   [000] d.h.  3355.955220: xhci_handle_command: CMD: Set TR Dequeue Pointer Command: deq 000000001ed3d0f1 stream 0 slot 2 ep 1 flags C
+     kworker/0:1-920   [000] d.h.  3355.955223: xhci_handle_cmd_set_deq: RS 00003 full-speed Ctx Entries 1 MEL 0 us Port# 1/0 [TT Slot 1 Port# 3 TTT 0 Intr 0] Addr 2 State addressed
+     kworker/0:1-920   [000] d.h.  3355.955225: xhci_handle_cmd_set_deq_ep: State stopped mult 1 max P. Streams 0 interval 125 us max ESIT payload 0 CErr 3 Type Ctrl burst 0 maxp 8 deq 000000001ed3d0f1 avg trb len 0
+     kworker/0:1-920   [000] d.h.  3355.955226: xhci_dbg_cancel_urb: Successful Set TR Deq Ptr cmd, deq = @1ed3d0f0
+     kworker/0:1-920   [000] d.h.  3355.955231: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03e20(0x000000001ed03000) deq 0x000000001ed03e20(0x000000001ed03000) segs 1 stream 0 free_trbs 254 bounce 0 cycle 1
+     kworker/0:1-920   [000] d.h.  3355.955232: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08190(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.956147: xhci_handle_event: EVENT: TRB 000000001ed3d110 status 'Success' len 0 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.956149: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+          <idle>-0     [000] d.h.  3355.956153: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d120(0x000000001ed3d000) deq 0x000000001ed3d100(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.956154: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d120(0x000000001ed3d000) deq 0x000000001ed3d110(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.956156: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d120(0x000000001ed3d000) deq 0x000000001ed3d120(0x000000001ed3d000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.956158: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 9/9 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.956169: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed081a0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.956195: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 0/41 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3355.956199: xhci_queue_trb: CTRL: bRequestType 80 bRequest 06 wValue 0200 wIndex 0000 wLength 41 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:c
+     kworker/0:1-920   [000] d...  3355.956201: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d130(0x000000001ed3d000) deq 0x000000001ed3d120(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.956202: xhci_queue_trb: CTRL: Buffer 0000000019d8da40 length 41 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+     kworker/0:1-920   [000] d...  3355.956204: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d140(0x000000001ed3d000) deq 0x000000001ed3d120(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.956205: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+     kworker/0:1-920   [000] d...  3355.956207: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d150(0x000000001ed3d000) deq 0x000000001ed3d120(0x000000001ed3d000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.958147: xhci_handle_event: EVENT: TRB 000000001ed3d140 status 'Success' len 0 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.958150: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+          <idle>-0     [000] d.h.  3355.958153: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d150(0x000000001ed3d000) deq 0x000000001ed3d130(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.958154: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d150(0x000000001ed3d000) deq 0x000000001ed3d140(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.958156: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d150(0x000000001ed3d000) deq 0x000000001ed3d150(0x000000001ed3d000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.958158: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 41/41 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.958169: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed081b0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.958203: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 0/255 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3355.958206: xhci_queue_trb: CTRL: bRequestType 80 bRequest 06 wValue 0300 wIndex 0000 wLength 255 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:c
+     kworker/0:1-920   [000] d...  3355.958210: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d160(0x000000001ed3d000) deq 0x000000001ed3d150(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.958211: xhci_queue_trb: CTRL: Buffer 000000001b2b7300 length 255 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+     kworker/0:1-920   [000] d...  3355.958213: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d170(0x000000001ed3d000) deq 0x000000001ed3d150(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.958214: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+     kworker/0:1-920   [000] d...  3355.958216: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d180(0x000000001ed3d000) deq 0x000000001ed3d150(0x000000001ed3d000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.958648: xhci_handle_event: EVENT: TRB 000000001ed3d160 status 'Short Packet' len 251 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.958650: xhci_handle_transfer: CTRL: Buffer 000000001b2b7300 length 255 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+          <idle>-0     [000] d.h.  3355.958653: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed081c0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.958897: xhci_handle_event: EVENT: TRB 000000001ed3d170 status 'Success' len 0 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.958900: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+          <idle>-0     [000] d.h.  3355.958902: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d180(0x000000001ed3d000) deq 0x000000001ed3d160(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.958904: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d180(0x000000001ed3d000) deq 0x000000001ed3d170(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.958905: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d180(0x000000001ed3d000) deq 0x000000001ed3d180(0x000000001ed3d000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.958907: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 4/255 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.958918: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed081d0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.958943: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 0/255 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3355.958946: xhci_queue_trb: CTRL: bRequestType 80 bRequest 06 wValue 0302 wIndex 0409 wLength 255 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:c
+     kworker/0:1-920   [000] d...  3355.958948: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d190(0x000000001ed3d000) deq 0x000000001ed3d180(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.958949: xhci_queue_trb: CTRL: Buffer 000000001b2b7300 length 255 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+     kworker/0:1-920   [000] d...  3355.958951: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d1a0(0x000000001ed3d000) deq 0x000000001ed3d180(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.958952: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+     kworker/0:1-920   [000] d...  3355.958954: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d1b0(0x000000001ed3d000) deq 0x000000001ed3d180(0x000000001ed3d000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.960147: xhci_handle_event: EVENT: TRB 000000001ed3d190 status 'Short Packet' len 231 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.960150: xhci_handle_transfer: CTRL: Buffer 000000001b2b7300 length 255 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+          <idle>-0     [000] d.h.  3355.960152: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed081e0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.960397: xhci_handle_event: EVENT: TRB 000000001ed3d1a0 status 'Success' len 0 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.960400: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+          <idle>-0     [000] d.h.  3355.960402: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d1b0(0x000000001ed3d000) deq 0x000000001ed3d190(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.960404: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d1b0(0x000000001ed3d000) deq 0x000000001ed3d1a0(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.960405: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d1b0(0x000000001ed3d000) deq 0x000000001ed3d1b0(0x000000001ed3d000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.960407: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 24/255 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.960418: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed081f0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.960447: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 0/255 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3355.960450: xhci_queue_trb: CTRL: bRequestType 80 bRequest 06 wValue 0301 wIndex 0409 wLength 255 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:c
+     kworker/0:1-920   [000] d...  3355.960452: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d1c0(0x000000001ed3d000) deq 0x000000001ed3d1b0(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.960453: xhci_queue_trb: CTRL: Buffer 000000001b2b7300 length 255 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+     kworker/0:1-920   [000] d...  3355.960455: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d1d0(0x000000001ed3d000) deq 0x000000001ed3d1b0(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.960456: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+     kworker/0:1-920   [000] d...  3355.960458: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d1e0(0x000000001ed3d000) deq 0x000000001ed3d1b0(0x000000001ed3d000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.961398: xhci_handle_event: EVENT: TRB 000000001ed3d1c0 status 'Short Packet' len 235 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.961400: xhci_handle_transfer: CTRL: Buffer 000000001b2b7300 length 255 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+          <idle>-0     [000] d.h.  3355.961402: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08200(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.961647: xhci_handle_event: EVENT: TRB 000000001ed3d1d0 status 'Success' len 0 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.961650: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+          <idle>-0     [000] d.h.  3355.961652: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d1e0(0x000000001ed3d000) deq 0x000000001ed3d1c0(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.961654: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d1e0(0x000000001ed3d000) deq 0x000000001ed3d1d0(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.961655: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d1e0(0x000000001ed3d000) deq 0x000000001ed3d1e0(0x000000001ed3d000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.961658: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 20/255 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.961668: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08210(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.961696: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 0/255 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3355.961699: xhci_queue_trb: CTRL: bRequestType 80 bRequest 06 wValue 0303 wIndex 0409 wLength 255 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:c
+     kworker/0:1-920   [000] d...  3355.961701: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d1f0(0x000000001ed3d000) deq 0x000000001ed3d1e0(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.961703: xhci_queue_trb: CTRL: Buffer 000000001b2b7300 length 255 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+     kworker/0:1-920   [000] d...  3355.961704: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d200(0x000000001ed3d000) deq 0x000000001ed3d1e0(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.961706: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+     kworker/0:1-920   [000] d...  3355.961708: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d210(0x000000001ed3d000) deq 0x000000001ed3d1e0(0x000000001ed3d000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.962902: xhci_handle_event: EVENT: TRB 000000001ed3d1f0 status 'Short Packet' len 225 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.962905: xhci_handle_transfer: CTRL: Buffer 000000001b2b7300 length 255 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+          <idle>-0     [000] d.h.  3355.962907: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08220(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.963148: xhci_handle_event: EVENT: TRB 000000001ed3d200 status 'Success' len 0 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.963150: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+          <idle>-0     [000] d.h.  3355.963153: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d210(0x000000001ed3d000) deq 0x000000001ed3d1f0(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.963154: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d210(0x000000001ed3d000) deq 0x000000001ed3d200(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.963156: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d210(0x000000001ed3d000) deq 0x000000001ed3d210(0x000000001ed3d000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.963158: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 30/255 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.963169: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08230(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.963654: xhci_ring_alloc: INTR 0d4980a9: enq 0x000000001ed3b000(0x000000001ed3b000) deq 0x000000001ed3b000(0x000000001ed3b000) segs 2 stream 0 free_trbs 509 bounce 64 cycle 1
+     kworker/0:1-920   [000] ....  3355.963726: xhci_ring_alloc: INTR 2eca5d60: enq 0x000000001ed39000(0x000000001ed39000) deq 0x000000001ed39000(0x000000001ed39000) segs 2 stream 0 free_trbs 509 bounce 64 cycle 1
+     kworker/0:1-920   [000] d...  3355.963776: xhci_configure_endpoint: RS 00003 full-speed Ctx Entries 3 MEL 0 us Port# 1/0 [TT Slot 1 Port# 3 TTT 0 Intr 0] Addr 0 State enabled/disabled
+     kworker/0:1-920   [000] d...  3355.963782: xhci_queue_trb: CMD: Configure Endpoint Command: ctx 000000001ed37000 slot 2 flags d:C
+     kworker/0:1-920   [000] d...  3355.963784: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03e30(0x000000001ed03000) deq 0x000000001ed03e20(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.963989: xhci_handle_event: EVENT: TRB 000000001ed03e20 status 'Success' len 0 slot 2 ep 0 type 'Command Completion Event' flags e:C
+          <idle>-0     [000] d.h.  3355.963992: xhci_handle_command: CMD: Configure Endpoint Command: ctx 000000001ed37000 slot 2 flags d:C
+          <idle>-0     [000] dnh.  3355.964003: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03e30(0x000000001ed03000) deq 0x000000001ed03e30(0x000000001ed03000) segs 1 stream 0 free_trbs 254 bounce 0 cycle 1
+          <idle>-0     [000] dnh.  3355.964004: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08240(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.964020: xhci_dbg_context_change: Successful Endpoint Configure command
+     kworker/0:1-920   [000] d...  3355.964043: xhci_queue_trb: CMD: Stop Ring Command: slot 2 sp 0 ep 3 flags C
+     kworker/0:1-920   [000] d...  3355.964045: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03e40(0x000000001ed03000) deq 0x000000001ed03e30(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.964096: xhci_handle_event: EVENT: TRB 000000001ed3b000 status 'Stopped - Length Invalid' len 0 slot 2 ep 3 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.964099: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08250(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.964136: xhci_handle_event: EVENT: TRB 000000001ed03e30 status 'Success' len 0 slot 2 ep 0 type 'Command Completion Event' flags e:C
+          <idle>-0     [000] d.h.  3355.964138: xhci_handle_command: CMD: Stop Ring Command: slot 2 sp 0 ep 3 flags C
+          <idle>-0     [000] dnh.  3355.964147: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03e40(0x000000001ed03000) deq 0x000000001ed03e40(0x000000001ed03000) segs 1 stream 0 free_trbs 254 bounce 0 cycle 1
+          <idle>-0     [000] dnh.  3355.964148: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08260(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.964166: xhci_queue_trb: CMD: Configure Endpoint Command: ctx 000000001ec00000 slot 2 flags d:C
+     kworker/0:1-920   [000] d...  3355.964168: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03e50(0x000000001ed03000) deq 0x000000001ed03e40(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.964350: xhci_handle_event: EVENT: TRB 000000001ed03e40 status 'Success' len 0 slot 2 ep 0 type 'Command Completion Event' flags e:C
+          <idle>-0     [000] d.h.  3355.964352: xhci_handle_command: CMD: Configure Endpoint Command: ctx 000000001ec00000 slot 2 flags d:C
+          <idle>-0     [000] dnh.  3355.964361: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03e50(0x000000001ed03000) deq 0x000000001ed03e50(0x000000001ed03000) segs 1 stream 0 free_trbs 254 bounce 0 cycle 1
+          <idle>-0     [000] dnh.  3355.964362: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08270(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.964389: xhci_queue_trb: CMD: Stop Ring Command: slot 2 sp 0 ep 2 flags C
+     kworker/0:1-920   [000] d...  3355.964391: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03e60(0x000000001ed03000) deq 0x000000001ed03e50(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.964439: xhci_handle_event: EVENT: TRB 000000001ed39000 status 'Stopped - Length Invalid' len 0 slot 2 ep 2 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.964441: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08280(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.964478: xhci_handle_event: EVENT: TRB 000000001ed03e50 status 'Success' len 0 slot 2 ep 0 type 'Command Completion Event' flags e:C
+          <idle>-0     [000] d.h.  3355.964480: xhci_handle_command: CMD: Stop Ring Command: slot 2 sp 0 ep 2 flags C
+          <idle>-0     [000] dnh.  3355.964488: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03e60(0x000000001ed03000) deq 0x000000001ed03e60(0x000000001ed03000) segs 1 stream 0 free_trbs 254 bounce 0 cycle 1
+          <idle>-0     [000] dnh.  3355.964489: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08290(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.964507: xhci_queue_trb: CMD: Configure Endpoint Command: ctx 000000001ec00000 slot 2 flags d:C
+     kworker/0:1-920   [000] d...  3355.964509: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03e70(0x000000001ed03000) deq 0x000000001ed03e60(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.964689: xhci_handle_event: EVENT: TRB 000000001ed03e60 status 'Success' len 0 slot 2 ep 0 type 'Command Completion Event' flags e:C
+          <idle>-0     [000] d.h.  3355.964691: xhci_handle_command: CMD: Configure Endpoint Command: ctx 000000001ec00000 slot 2 flags d:C
+          <idle>-0     [000] dnh.  3355.964699: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03e70(0x000000001ed03000) deq 0x000000001ed03e70(0x000000001ed03000) segs 1 stream 0 free_trbs 254 bounce 0 cycle 1
+          <idle>-0     [000] dnh.  3355.964700: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed082a0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.964741: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147486464 slot 2 length 0/0 sgs 0/0 stream 0 flags 00100000
+     kworker/0:1-920   [000] d...  3355.964745: xhci_queue_trb: CTRL: bRequestType 00 bRequest 09 wValue 0001 wIndex 0000 wLength 0 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:c
+     kworker/0:1-920   [000] d...  3355.964747: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d220(0x000000001ed3d000) deq 0x000000001ed3d210(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.964748: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+     kworker/0:1-920   [000] d...  3355.964750: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d230(0x000000001ed3d000) deq 0x000000001ed3d210(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.965649: xhci_handle_event: EVENT: TRB 000000001ed3d220 status 'Success' len 0 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.965652: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+          <idle>-0     [000] d.h.  3355.965656: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d230(0x000000001ed3d000) deq 0x000000001ed3d220(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.965657: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d230(0x000000001ed3d000) deq 0x000000001ed3d230(0x000000001ed3d000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.965660: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147486464 slot 2 length 0/0 sgs 0/0 stream 0 flags 00100000
+          <idle>-0     [000] dnh.  3355.965673: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed082b0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.965928: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 0/255 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3355.965935: xhci_queue_trb: CTRL: bRequestType 80 bRequest 06 wValue 0303 wIndex 0409 wLength 255 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:c
+     kworker/0:1-920   [000] d...  3355.965937: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d240(0x000000001ed3d000) deq 0x000000001ed3d230(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.965938: xhci_queue_trb: CTRL: Buffer 000000001b2b7300 length 255 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+     kworker/0:1-920   [000] d...  3355.965940: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d250(0x000000001ed3d000) deq 0x000000001ed3d230(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.965941: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+     kworker/0:1-920   [000] d...  3355.965943: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d260(0x000000001ed3d000) deq 0x000000001ed3d230(0x000000001ed3d000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.968906: xhci_handle_event: EVENT: TRB 000000001ed3d240 status 'Short Packet' len 225 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.968913: xhci_handle_transfer: CTRL: Buffer 000000001b2b7300 length 255 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+          <idle>-0     [000] d.h.  3355.968916: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed082c0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.969148: xhci_handle_event: EVENT: TRB 000000001ed3d250 status 'Success' len 0 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.969151: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+          <idle>-0     [000] d.h.  3355.969154: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d260(0x000000001ed3d000) deq 0x000000001ed3d240(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.969156: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d260(0x000000001ed3d000) deq 0x000000001ed3d250(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.969157: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d260(0x000000001ed3d000) deq 0x000000001ed3d260(0x000000001ed3d000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.969160: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 30/255 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.969180: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed082d0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.969261: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147486464 slot 2 length 0/0 sgs 0/0 stream 0 flags 00100000
+     kworker/0:1-920   [000] d...  3355.969265: xhci_queue_trb: CTRL: bRequestType 21 bRequest 0a wValue 0000 wIndex 0000 wLength 0 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:c
+     kworker/0:1-920   [000] d...  3355.969267: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d270(0x000000001ed3d000) deq 0x000000001ed3d260(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.969268: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+     kworker/0:1-920   [000] d...  3355.969272: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d280(0x000000001ed3d000) deq 0x000000001ed3d260(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.969649: xhci_handle_event: EVENT: TRB 000000001ed3d270 status 'Success' len 0 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.969652: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+          <idle>-0     [000] d.h.  3355.969655: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d280(0x000000001ed3d000) deq 0x000000001ed3d270(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.969657: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d280(0x000000001ed3d000) deq 0x000000001ed3d280(0x000000001ed3d000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.969659: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147486464 slot 2 length 0/0 sgs 0/0 stream 0 flags 00100000
+          <idle>-0     [000] dnh.  3355.969669: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed082e0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3355.969691: xhci_urb_enqueue: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 0/29 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3355.969694: xhci_queue_trb: CTRL: bRequestType 81 bRequest 06 wValue 2200 wIndex 0000 wLength 29 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:c
+     kworker/0:1-920   [000] d...  3355.969696: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d290(0x000000001ed3d000) deq 0x000000001ed3d280(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.969698: xhci_queue_trb: CTRL: Buffer 0000000019d8dfc0 length 29 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+     kworker/0:1-920   [000] d...  3355.969699: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d2a0(0x000000001ed3d000) deq 0x000000001ed3d280(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3355.969701: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+     kworker/0:1-920   [000] d...  3355.969703: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d2b0(0x000000001ed3d000) deq 0x000000001ed3d280(0x000000001ed3d000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.971149: xhci_handle_event: EVENT: TRB 000000001ed3d2a0 status 'Success' len 0 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3355.971152: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+          <idle>-0     [000] d.h.  3355.971155: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d2b0(0x000000001ed3d000) deq 0x000000001ed3d290(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.971156: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d2b0(0x000000001ed3d000) deq 0x000000001ed3d2a0(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.971158: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d2b0(0x000000001ed3d000) deq 0x000000001ed3d2b0(0x000000001ed3d000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3355.971160: xhci_urb_giveback: ep0out-control: urb 795a5de9 pipe 2147486592 slot 2 length 29/29 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3355.971170: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed082f0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     bug_usb_pi4-1053  [002] ....  3360.555530: xhci_urb_enqueue: ep0out-control: urb 3f09bc75 pipe 2147486592 slot 2 length 0/512 sgs 0/0 stream 0 flags 00110200
+     bug_usb_pi4-1053  [002] d...  3360.555541: xhci_queue_trb: CTRL: bRequestType 80 bRequest 06 wValue 0303 wIndex 0000 wLength 512 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:c
+     bug_usb_pi4-1053  [002] d...  3360.555545: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d2c0(0x000000001ed3d000) deq 0x000000001ed3d2b0(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+     bug_usb_pi4-1053  [002] d...  3360.555547: xhci_queue_trb: CTRL: Buffer 0000000019d9ac00 length 512 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+     bug_usb_pi4-1053  [002] d...  3360.555549: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d2d0(0x000000001ed3d000) deq 0x000000001ed3d2b0(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+     bug_usb_pi4-1053  [002] d...  3360.555550: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+     bug_usb_pi4-1053  [002] d...  3360.555552: xhci_inc_enq: CTRL 62bc4327: enq 0x000000001ed3d2e0(0x000000001ed3d000) deq 0x000000001ed3d2b0(0x000000001ed3d000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3360.557145: xhci_handle_event: EVENT: TRB 000000001ed3d2c0 status 'Short Packet' len 482 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3360.557151: xhci_handle_transfer: CTRL: Buffer 0000000019d9ac00 length 512 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:C
+          <idle>-0     [000] d.h.  3360.557155: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08300(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3360.557390: xhci_handle_event: EVENT: TRB 000000001ed3d2d0 status 'Success' len 0 slot 2 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3360.557393: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:C
+          <idle>-0     [000] d.h.  3360.557396: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d2e0(0x000000001ed3d000) deq 0x000000001ed3d2c0(0x000000001ed3d000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3360.557398: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d2e0(0x000000001ed3d000) deq 0x000000001ed3d2d0(0x000000001ed3d000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3360.557399: xhci_inc_deq: CTRL 62bc4327: enq 0x000000001ed3d2e0(0x000000001ed3d000) deq 0x000000001ed3d2e0(0x000000001ed3d000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3360.557403: xhci_urb_giveback: ep0out-control: urb 3f09bc75 pipe 2147486592 slot 2 length 30/512 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] d.h.  3360.557416: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08310(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     bug_usb_pi4-1053  [002] ....  3360.559059: xhci_urb_enqueue: ep1in-intr: urb 3f09bc75 pipe 1073777536 slot 2 length 0/64 sgs 0/0 stream 0 flags 00010200
+     bug_usb_pi4-1053  [002] d...  3360.559068: xhci_queue_trb: INTR: Buffer 000000001b9e8e80 length 64 TD size 0 intr 0 type 'Normal' flags b:i:I:c:s:I:e:c
+     bug_usb_pi4-1053  [002] d...  3360.559070: xhci_inc_enq: INTR 0d4980a9: enq 0x000000001ed3b010(0x000000001ed3b000) deq 0x000000001ed3b000(0x000000001ed3b000) segs 2 stream 0 free_trbs 508 bounce 64 cycle 1
+     bug_usb_pi4-1053  [002] ....  3360.559197: xhci_urb_enqueue: ep1out-intr: urb a82ee0b9 pipe 1073777408 slot 2 length 0/64 sgs 0/0 stream 0 flags 00010000
+     bug_usb_pi4-1053  [002] d...  3360.559203: xhci_queue_trb: INTR: Buffer 0000000019d8dfc0 length 64 TD size 0 intr 0 type 'Normal' flags b:i:I:c:s:i:e:c
+     bug_usb_pi4-1053  [002] d...  3360.559205: xhci_inc_enq: INTR 2eca5d60: enq 0x000000001ed39010(0x000000001ed39000) deq 0x000000001ed39000(0x000000001ed39000) segs 2 stream 0 free_trbs 508 bounce 64 cycle 1
+          <idle>-0     [000] d.h.  3360.560396: xhci_handle_event: EVENT: TRB 000000001ed39000 status 'Success' len 0 slot 2 ep 2 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3360.560402: xhci_handle_transfer: INTR: Buffer 0000000019d8dfc0 length 64 TD size 0 intr 0 type 'Normal' flags b:i:I:c:s:i:e:C
+          <idle>-0     [000] d.h.  3360.560407: xhci_inc_deq: INTR 2eca5d60: enq 0x000000001ed39010(0x000000001ed39000) deq 0x000000001ed39010(0x000000001ed39000) segs 2 stream 0 free_trbs 509 bounce 64 cycle 1
+          <idle>-0     [000] d.h.  3360.560411: xhci_urb_giveback: ep1out-intr: urb a82ee0b9 pipe 1073777408 slot 2 length 64/64 sgs 0/0 stream 0 flags 00010000
+          <idle>-0     [000] d.h.  3360.560422: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08320(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     bug_usb_pi4-1054  [003] d...  3365.566481: xhci_urb_dequeue: ep1in-intr: urb 3f09bc75 pipe 1073777536 slot 2 length 0/64 sgs 0/0 stream 0 flags 00010200
+     bug_usb_pi4-1054  [003] d...  3365.566492: xhci_dbg_cancel_urb: Cancel URB 3f09bc75, dev 1.3, ep 0x81, starting at offset 0x1ed3b000
+     bug_usb_pi4-1054  [003] d...  3365.566511: xhci_queue_trb: CMD: Stop Ring Command: slot 2 sp 0 ep 3 flags C
+     bug_usb_pi4-1054  [003] d...  3365.566515: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03e80(0x000000001ed03000) deq 0x000000001ed03e70(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+     bug_usb_pi4-1054  [003] d...  3365.566522: xhci_urb_dequeue: ep1in-intr: urb 3f09bc75 pipe 1073777536 slot 2 length 0/64 sgs 0/0 stream 0 flags 00010200
+          <idle>-0     [000] d.h.  3365.567011: xhci_handle_event: EVENT: TRB 000000001ed3b000 status 'Stopped' len 64 slot 2 ep 3 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3365.567017: xhci_handle_transfer: INTR: Buffer 000000001b9e8e80 length 64 TD size 0 intr 0 type 'Normal' flags b:i:I:c:s:I:e:C
+          <idle>-0     [000] d.h.  3365.567022: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08330(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3365.567023: xhci_handle_event: EVENT: TRB 000000001ed03e70 status 'Success' len 0 slot 2 ep 0 type 'Command Completion Event' flags e:C
+          <idle>-0     [000] d.h.  3365.567026: xhci_handle_command: CMD: Stop Ring Command: slot 2 sp 0 ep 3 flags C
+          <idle>-0     [000] d.h.  3365.567031: xhci_handle_cmd_stop_ep: State stopped mult 1 max P. Streams 0 interval 1000 us max ESIT payload 64 CErr 3 Type Int IN burst 0 maxp 64 deq 000000001ed3b001 avg trb len 64
+          <idle>-0     [000] d.h.  3365.567033: xhci_dbg_cancel_urb: Removing canceled TD starting at 0x1ed3b000 (dma).
+          <idle>-0     [000] d.h.  3365.567039: xhci_dbg_cancel_urb: Finding endpoint context
+          <idle>-0     [000] d.h.  3365.567042: xhci_dbg_cancel_urb: Cycle state = 0x1
+          <idle>-0     [000] d.h.  3365.567046: xhci_dbg_cancel_urb: New dequeue segment = de69015a (virtual)
+          <idle>-0     [000] d.h.  3365.567050: xhci_dbg_cancel_urb: New dequeue pointer = 0x1ed3b010 (DMA)
+          <idle>-0     [000] d.h.  3365.567054: xhci_dbg_cancel_urb: Set TR Deq Ptr cmd, new deq seg = de69015a (0x1ed3b000 dma), new deq ptr = 63ed31eb (0x1ed3b010 dma), new cycle = 1
+          <idle>-0     [000] d.h.  3365.567063: xhci_queue_trb: CMD: Set TR Dequeue Pointer Command: deq 000000001ed3b011 stream 0 slot 2 ep 3 flags C
+          <idle>-0     [000] d.h.  3365.567065: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03e90(0x000000001ed03000) deq 0x000000001ed03e70(0x000000001ed03000) segs 1 stream 0 free_trbs 252 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3365.567071: xhci_urb_giveback: ep1in-intr: urb 3f09bc75 pipe 1073777536 slot 2 length 0/64 sgs 0/0 stream 0 flags 00010200
+          <idle>-0     [000] d.h.  3365.567091: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03e90(0x000000001ed03000) deq 0x000000001ed03e80(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3365.567093: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08340(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3365.567113: xhci_handle_event: EVENT: TRB 000000001ed03e80 status 'Success' len 0 slot 2 ep 0 type 'Command Completion Event' flags e:C
+          <idle>-0     [000] d.h.  3365.567115: xhci_handle_command: CMD: Set TR Dequeue Pointer Command: deq 000000001ed3b011 stream 0 slot 2 ep 3 flags C
+          <idle>-0     [000] d.h.  3365.567120: xhci_handle_cmd_set_deq: RS 00003 full-speed Ctx Entries 3 MEL 0 us Port# 1/0 [TT Slot 1 Port# 3 TTT 0 Intr 0] Addr 2 State configured
+          <idle>-0     [000] d.h.  3365.567122: xhci_handle_cmd_set_deq_ep: State stopped mult 1 max P. Streams 0 interval 1000 us max ESIT payload 64 CErr 3 Type Int IN burst 0 maxp 64 deq 000000001ed3b011 avg trb len 64
+          <idle>-0     [000] d.h.  3365.567124: xhci_dbg_cancel_urb: Successful Set TR Deq Ptr cmd, deq = @1ed3b010
+          <idle>-0     [000] d.h.  3365.567129: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03e90(0x000000001ed03000) deq 0x000000001ed03e90(0x000000001ed03000) segs 1 stream 0 free_trbs 254 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3365.567131: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08350(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3368.013227: xhci_handle_event: EVENT: TRB 000000001ed33110 status 'Success' len 0 slot 1 ep 3 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3368.013237: xhci_handle_transfer: INTR: Buffer 000000001c41b940 length 1 TD size 0 intr 0 type 'Normal' flags b:i:I:c:s:I:e:C
+          <idle>-0     [000] d.h.  3368.013241: xhci_inc_deq: INTR 233e78a8: enq 0x000000001ed33120(0x000000001ed33000) deq 0x000000001ed33120(0x000000001ed33000) segs 2 stream 0 free_trbs 509 bounce 1 cycle 1
+          <idle>-0     [000] d.h.  3368.013247: xhci_urb_giveback: ep1in-intr: urb 7984ecd4 pipe 1077969536 slot 1 length 1/1 sgs 0/0 stream 0 flags 00010200
+          <idle>-0     [000] dnh.  3368.013271: xhci_urb_enqueue: ep1in-intr: urb 7984ecd4 pipe 1077969536 slot 1 length 0/1 sgs 0/0 stream 0 flags 00010200
+          <idle>-0     [000] dnh.  3368.013277: xhci_queue_trb: INTR: Buffer 000000001c41b940 length 1 TD size 0 intr 0 type 'Normal' flags b:i:I:c:s:I:e:c
+          <idle>-0     [000] dnh.  3368.013279: xhci_inc_enq: INTR 233e78a8: enq 0x000000001ed33130(0x000000001ed33000) deq 0x000000001ed33120(0x000000001ed33000) segs 2 stream 0 free_trbs 508 bounce 1 cycle 1
+          <idle>-0     [000] dnh.  3368.013283: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08360(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3368.013321: xhci_urb_enqueue: ep0out-control: urb 7ba15b17 pipe 2147484288 slot 1 length 0/4 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3368.013324: xhci_queue_trb: CTRL: bRequestType a3 bRequest 00 wValue 0000 wIndex 0003 wLength 4 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3368.013326: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31520(0x000000001ed31000) deq 0x000000001ed31510(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3368.013327: xhci_queue_trb: CTRL: Buffer 000000001c41ba00 length 4 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:c
+     kworker/0:1-920   [000] d...  3368.013329: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31530(0x000000001ed31000) deq 0x000000001ed31510(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3368.013330: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3368.013332: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31540(0x000000001ed31000) deq 0x000000001ed31510(0x000000001ed31000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.013430: xhci_handle_event: EVENT: TRB 000000001ed31530 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3368.013433: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3368.013436: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31540(0x000000001ed31000) deq 0x000000001ed31520(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.013438: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31540(0x000000001ed31000) deq 0x000000001ed31530(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.013439: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31540(0x000000001ed31000) deq 0x000000001ed31540(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.013441: xhci_urb_giveback: ep0out-control: urb 7ba15b17 pipe 2147484288 slot 1 length 4/4 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3368.013453: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08370(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3368.013480: xhci_urb_enqueue: ep0out-control: urb 7ba15b17 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+     kworker/0:1-920   [000] d...  3368.013483: xhci_queue_trb: CTRL: bRequestType 23 bRequest 01 wValue 0010 wIndex 0003 wLength 0 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3368.013487: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31550(0x000000001ed31000) deq 0x000000001ed31540(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3368.013489: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3368.013490: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31560(0x000000001ed31000) deq 0x000000001ed31540(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.013793: xhci_handle_event: EVENT: TRB 000000001ed31550 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3368.013796: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3368.013799: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31560(0x000000001ed31000) deq 0x000000001ed31550(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.013800: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31560(0x000000001ed31000) deq 0x000000001ed31560(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.013802: xhci_urb_giveback: ep0out-control: urb 7ba15b17 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+          <idle>-0     [000] dnh.  3368.013813: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08380(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3368.013839: xhci_urb_enqueue: ep0out-control: urb 7ba15b17 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+     kworker/0:1-920   [000] d...  3368.013842: xhci_queue_trb: CTRL: bRequestType 23 bRequest 03 wValue 0016 wIndex 0003 wLength 0 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3368.013844: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31570(0x000000001ed31000) deq 0x000000001ed31560(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3368.013845: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3368.013847: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31580(0x000000001ed31000) deq 0x000000001ed31560(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.014158: xhci_handle_event: EVENT: TRB 000000001ed31570 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3368.014161: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3368.014163: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31580(0x000000001ed31000) deq 0x000000001ed31570(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.014165: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31580(0x000000001ed31000) deq 0x000000001ed31580(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.014167: xhci_urb_giveback: ep0out-control: urb 7ba15b17 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+          <idle>-0     [000] dnh.  3368.014177: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08390(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3368.014652: xhci_configure_endpoint: RS 00003 full-speed Ctx Entries 1 MEL 0 us Port# 1/0 [TT Slot 1 Port# 3 TTT 0 Intr 0] Addr 0 State enabled/disabled
+     kworker/0:1-920   [000] d...  3368.014658: xhci_queue_trb: CMD: Configure Endpoint Command: ctx 000000001ed37000 slot 2 flags d:C
+     kworker/0:1-920   [000] d...  3368.014660: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03ea0(0x000000001ed03000) deq 0x000000001ed03e90(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3368.014818: xhci_handle_event: EVENT: TRB 000000001ed03e90 status 'Success' len 0 slot 2 ep 0 type 'Command Completion Event' flags e:C
+          <idle>-0     [000] d.h.  3368.014820: xhci_handle_command: CMD: Configure Endpoint Command: ctx 000000001ed37000 slot 2 flags d:C
+          <idle>-0     [000] dnh.  3368.014830: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03ea0(0x000000001ed03000) deq 0x000000001ed03ea0(0x000000001ed03000) segs 1 stream 0 free_trbs 254 bounce 0 cycle 1
+          <idle>-0     [000] dnh.  3368.014831: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed083a0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3368.014848: xhci_dbg_context_change: Successful Endpoint Configure command
+     kworker/0:1-920   [000] ....  3368.014852: xhci_ring_free: INTR 2eca5d60: enq 0x000000001ed39010(0x000000001ed39000) deq 0x000000001ed39010(0x000000001ed39000) segs 2 stream 0 free_trbs 509 bounce 64 cycle 1
+     kworker/0:1-920   [000] ....  3368.014863: xhci_ring_free: INTR 0d4980a9: enq 0x000000001ed3b010(0x000000001ed3b000) deq 0x000000001ed3b010(0x000000001ed3b000) segs 2 stream 0 free_trbs 509 bounce 64 cycle 1
+     kworker/0:1-920   [000] ....  3368.015278: xhci_free_dev: RS 00003 full-speed Ctx Entries 1 MEL 0 us Port# 1/0 [TT Slot 1 Port# 3 TTT 0 Intr 0] Addr 2 State addressed
+     kworker/0:1-920   [000] d...  3368.015436: xhci_queue_trb: CMD: Disable Slot Command: slot 2 flags C
+     kworker/0:1-920   [000] d...  3368.015438: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03eb0(0x000000001ed03000) deq 0x000000001ed03ea0(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3368.015466: xhci_urb_enqueue: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 0/4 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3368.015469: xhci_queue_trb: CTRL: bRequestType a3 bRequest 00 wValue 0000 wIndex 0003 wLength 4 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3368.015471: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31590(0x000000001ed31000) deq 0x000000001ed31580(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3368.015472: xhci_queue_trb: CTRL: Buffer 000000001c41ba00 length 4 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:c
+     kworker/0:1-920   [000] d...  3368.015474: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed315a0(0x000000001ed31000) deq 0x000000001ed31580(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3368.015475: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3368.015477: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed315b0(0x000000001ed31000) deq 0x000000001ed31580(0x000000001ed31000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 0
+   systemd-udevd-1058  [000] d.h.  3368.015535: xhci_handle_event: EVENT: TRB 000000001ed03ea0 status 'Success' len 0 slot 2 ep 0 type 'Command Completion Event' flags e:C
+   systemd-udevd-1058  [000] d.h.  3368.015537: xhci_handle_command: CMD: Disable Slot Command: slot 2 flags C
+   systemd-udevd-1058  [000] d.h.  3368.015542: xhci_handle_cmd_disable_slot: RS 00003 full-speed Ctx Entries 1 MEL 0 us Port# 1/0 [TT Slot 1 Port# 3 TTT 0 Intr 0] Addr 2 State enabled/disabled
+   systemd-udevd-1058  [000] d.h.  3368.015544: xhci_free_virt_device: vdev 76b3542c ctx 1ed37000 | 1ec01000 fake_port 1 real_port 1 current_mel 0
+   systemd-udevd-1058  [000] d.h.  3368.015546: xhci_ring_free: CTRL 62bc4327: enq 0x000000001ed3d2e0(0x000000001ed3d000) deq 0x000000001ed3d2e0(0x000000001ed3d000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 1
+   systemd-udevd-1058  [000] d.h.  3368.015558: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03eb0(0x000000001ed03000) deq 0x000000001ed03eb0(0x000000001ed03000) segs 1 stream 0 free_trbs 254 bounce 0 cycle 1
+   systemd-udevd-1058  [000] d.h.  3368.015560: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed083b0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+   systemd-udevd-1058  [000] d.h.  3368.015702: xhci_handle_event: EVENT: TRB 000000001ed315a0 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+   systemd-udevd-1058  [000] d.h.  3368.015706: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+   systemd-udevd-1058  [000] d.h.  3368.015709: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed315b0(0x000000001ed31000) deq 0x000000001ed31590(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+   systemd-udevd-1058  [000] d.h.  3368.015711: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed315b0(0x000000001ed31000) deq 0x000000001ed315a0(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+   systemd-udevd-1058  [000] d.h.  3368.015712: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed315b0(0x000000001ed31000) deq 0x000000001ed315b0(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+   systemd-udevd-1058  [000] d.h.  3368.015715: xhci_urb_giveback: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 4/4 sgs 0/0 stream 0 flags 00110200
+   systemd-udevd-1058  [000] dnh.  3368.015731: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed083c0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3368.062267: xhci_urb_enqueue: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 0/4 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3368.062277: xhci_queue_trb: CTRL: bRequestType a3 bRequest 00 wValue 0000 wIndex 0003 wLength 4 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3368.062280: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed315c0(0x000000001ed31000) deq 0x000000001ed315b0(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3368.062282: xhci_queue_trb: CTRL: Buffer 000000001c41ba00 length 4 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:c
+     kworker/0:1-920   [000] d...  3368.062284: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed315d0(0x000000001ed31000) deq 0x000000001ed315b0(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3368.062285: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3368.062287: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed315e0(0x000000001ed31000) deq 0x000000001ed315b0(0x000000001ed31000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.062413: xhci_handle_event: EVENT: TRB 000000001ed315d0 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3368.062418: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3368.062423: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed315e0(0x000000001ed31000) deq 0x000000001ed315c0(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.062426: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed315e0(0x000000001ed31000) deq 0x000000001ed315d0(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.062427: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed315e0(0x000000001ed31000) deq 0x000000001ed315e0(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.062430: xhci_urb_giveback: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 4/4 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3368.062443: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed083d0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3368.112271: xhci_urb_enqueue: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 0/4 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3368.112274: xhci_queue_trb: CTRL: bRequestType a3 bRequest 00 wValue 0000 wIndex 0003 wLength 4 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3368.112276: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed315f0(0x000000001ed31000) deq 0x000000001ed315e0(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3368.112278: xhci_queue_trb: CTRL: Buffer 000000001c41ba00 length 4 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:c
+     kworker/0:1-920   [000] d...  3368.112279: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31600(0x000000001ed31000) deq 0x000000001ed315e0(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3368.112281: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3368.112282: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31610(0x000000001ed31000) deq 0x000000001ed315e0(0x000000001ed31000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.112401: xhci_handle_event: EVENT: TRB 000000001ed31600 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3368.112404: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3368.112407: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31610(0x000000001ed31000) deq 0x000000001ed315f0(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.112408: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31610(0x000000001ed31000) deq 0x000000001ed31600(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.112410: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31610(0x000000001ed31000) deq 0x000000001ed31610(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.112412: xhci_urb_giveback: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 4/4 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3368.112423: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed083e0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3368.162252: xhci_urb_enqueue: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 0/4 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3368.162256: xhci_queue_trb: CTRL: bRequestType a3 bRequest 00 wValue 0000 wIndex 0003 wLength 4 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3368.162258: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31620(0x000000001ed31000) deq 0x000000001ed31610(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3368.162259: xhci_queue_trb: CTRL: Buffer 000000001c41ba00 length 4 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:c
+     kworker/0:1-920   [000] d...  3368.162261: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31630(0x000000001ed31000) deq 0x000000001ed31610(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3368.162262: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3368.162264: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31640(0x000000001ed31000) deq 0x000000001ed31610(0x000000001ed31000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.162394: xhci_handle_event: EVENT: TRB 000000001ed31630 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3368.162397: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3368.162399: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31640(0x000000001ed31000) deq 0x000000001ed31620(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.162401: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31640(0x000000001ed31000) deq 0x000000001ed31630(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.162402: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31640(0x000000001ed31000) deq 0x000000001ed31640(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.162405: xhci_urb_giveback: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 4/4 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3368.162415: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed083f0(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3368.212256: xhci_urb_enqueue: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 0/4 sgs 0/0 stream 0 flags 00110200
+     kworker/0:1-920   [000] d...  3368.212259: xhci_queue_trb: CTRL: bRequestType a3 bRequest 00 wValue 0000 wIndex 0003 wLength 4 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3368.212261: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31650(0x000000001ed31000) deq 0x000000001ed31640(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3368.212263: xhci_queue_trb: CTRL: Buffer 000000001c41ba00 length 4 TD size 0 intr 0 type 'Data Stage' flags i:i:c:s:I:e:c
+     kworker/0:1-920   [000] d...  3368.212265: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31660(0x000000001ed31000) deq 0x000000001ed31640(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3368.212266: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3368.212267: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31670(0x000000001ed31000) deq 0x000000001ed31640(0x000000001ed31000) segs 2 stream 0 free_trbs 506 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.212387: xhci_handle_event: EVENT: TRB 000000001ed31660 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3368.212390: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3368.212392: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31670(0x000000001ed31000) deq 0x000000001ed31650(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.212394: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31670(0x000000001ed31000) deq 0x000000001ed31660(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.212395: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31670(0x000000001ed31000) deq 0x000000001ed31670(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.212398: xhci_urb_giveback: ep0out-control: urb 6d24e591 pipe 2147484288 slot 1 length 4/4 sgs 0/0 stream 0 flags 00110200
+          <idle>-0     [000] dnh.  3368.212408: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08400(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3368.212458: xhci_urb_dequeue: ep1in-intr: urb 7984ecd4 pipe 1077969536 slot 1 length 0/1 sgs 0/0 stream 0 flags 00010200
+     kworker/0:1-920   [000] d...  3368.212464: xhci_dbg_cancel_urb: Cancel URB 7984ecd4, dev 1, ep 0x81, starting at offset 0x1ed33120
+     kworker/0:1-920   [000] d...  3368.212480: xhci_queue_trb: CMD: Stop Ring Command: slot 1 sp 0 ep 3 flags C
+     kworker/0:1-920   [000] d...  3368.212482: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03ec0(0x000000001ed03000) deq 0x000000001ed03eb0(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3368.212856: xhci_handle_event: EVENT: TRB 000000001ed33120 status 'Stopped' len 1 slot 1 ep 3 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3368.212859: xhci_handle_transfer: INTR: Buffer 000000001c41b940 length 1 TD size 0 intr 0 type 'Normal' flags b:i:I:c:s:I:e:C
+          <idle>-0     [000] d.h.  3368.212861: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08410(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3368.212863: xhci_handle_event: EVENT: TRB 000000001ed03eb0 status 'Success' len 0 slot 1 ep 0 type 'Command Completion Event' flags e:C
+          <idle>-0     [000] d.h.  3368.212865: xhci_handle_command: CMD: Stop Ring Command: slot 1 sp 0 ep 3 flags C
+          <idle>-0     [000] d.h.  3368.212870: xhci_handle_cmd_stop_ep: State stopped mult 1 max P. Streams 0 interval 256000 us max ESIT payload 1 CErr 3 Type Int IN burst 0 maxp 1 deq 000000001ed33121 avg trb len 1
+          <idle>-0     [000] d.h.  3368.212873: xhci_dbg_cancel_urb: Removing canceled TD starting at 0x1ed33120 (dma).
+          <idle>-0     [000] d.h.  3368.212878: xhci_dbg_cancel_urb: Finding endpoint context
+          <idle>-0     [000] d.h.  3368.212881: xhci_dbg_cancel_urb: Cycle state = 0x1
+          <idle>-0     [000] d.h.  3368.212883: xhci_dbg_cancel_urb: New dequeue segment = dbe35f9c (virtual)
+          <idle>-0     [000] d.h.  3368.212887: xhci_dbg_cancel_urb: New dequeue pointer = 0x1ed33130 (DMA)
+          <idle>-0     [000] d.h.  3368.212890: xhci_dbg_cancel_urb: Set TR Deq Ptr cmd, new deq seg = dbe35f9c (0x1ed33000 dma), new deq ptr = c5935d61 (0x1ed33130 dma), new cycle = 1
+          <idle>-0     [000] d.h.  3368.212898: xhci_queue_trb: CMD: Set TR Dequeue Pointer Command: deq 000000001ed33131 stream 0 slot 1 ep 3 flags C
+          <idle>-0     [000] d.h.  3368.212900: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03ed0(0x000000001ed03000) deq 0x000000001ed03eb0(0x000000001ed03000) segs 1 stream 0 free_trbs 252 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3368.212903: xhci_urb_giveback: ep1in-intr: urb 7984ecd4 pipe 1077969536 slot 1 length 0/1 sgs 0/0 stream 0 flags 00010200
+          <idle>-0     [000] dnh.  3368.212919: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03ed0(0x000000001ed03000) deq 0x000000001ed03ec0(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+          <idle>-0     [000] dnh.  3368.212920: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08420(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] d.h.  3368.212943: xhci_handle_event: EVENT: TRB 000000001ed03ec0 status 'Success' len 0 slot 1 ep 0 type 'Command Completion Event' flags e:C
+     kworker/0:1-920   [000] d.h.  3368.212945: xhci_handle_command: CMD: Set TR Dequeue Pointer Command: deq 000000001ed33131 stream 0 slot 1 ep 3 flags C
+     kworker/0:1-920   [000] d.h.  3368.212950: xhci_handle_cmd_set_deq: RS 00000 high-speed Hub Ctx Entries 3 MEL 0 us Port# 1/4 [TT Slot 0 Port# 0 TTT 3 Intr 0] Addr 1 State configured
+     kworker/0:1-920   [000] d.h.  3368.212951: xhci_handle_cmd_set_deq_ep: State stopped mult 1 max P. Streams 0 interval 256000 us max ESIT payload 1 CErr 3 Type Int IN burst 0 maxp 1 deq 000000001ed33131 avg trb len 1
+     kworker/0:1-920   [000] d.h.  3368.212955: xhci_dbg_cancel_urb: Successful Set TR Deq Ptr cmd, deq = @1ed33130
+     kworker/0:1-920   [000] d.h.  3368.212959: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03ed0(0x000000001ed03000) deq 0x000000001ed03ed0(0x000000001ed03000) segs 1 stream 0 free_trbs 254 bounce 0 cycle 1
+     kworker/0:1-920   [000] d.h.  3368.212961: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08430(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3368.212981: xhci_urb_enqueue: ep0out-control: urb 6d24e591 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+     kworker/0:1-920   [000] d...  3368.212984: xhci_queue_trb: CTRL: bRequestType 00 bRequest 03 wValue 0001 wIndex 0000 wLength 0 length 8 TD size 0 intr 0 type 'Setup Stage' flags I:i:C
+     kworker/0:1-920   [000] d...  3368.212985: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31680(0x000000001ed31000) deq 0x000000001ed31670(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+     kworker/0:1-920   [000] d...  3368.212987: xhci_queue_trb: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+     kworker/0:1-920   [000] d...  3368.212988: xhci_inc_enq: CTRL 31e02666: enq 0x000000001ed31690(0x000000001ed31000) deq 0x000000001ed31670(0x000000001ed31000) segs 2 stream 0 free_trbs 507 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.213101: xhci_handle_event: EVENT: TRB 000000001ed31680 status 'Success' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3368.213104: xhci_handle_transfer: CTRL: Buffer 0000000000000000 length 0 TD size 0 intr 0 type 'Status Stage' flags I:c:e:c
+          <idle>-0     [000] d.h.  3368.213107: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31690(0x000000001ed31000) deq 0x000000001ed31680(0x000000001ed31000) segs 2 stream 0 free_trbs 508 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.213109: xhci_inc_deq: CTRL 31e02666: enq 0x000000001ed31690(0x000000001ed31000) deq 0x000000001ed31690(0x000000001ed31000) segs 2 stream 0 free_trbs 509 bounce 0 cycle 0
+          <idle>-0     [000] d.h.  3368.213111: xhci_urb_giveback: ep0out-control: urb 6d24e591 pipe 2147484160 slot 1 length 0/0 sgs 0/0 stream 0 flags 00100000
+          <idle>-0     [000] dnh.  3368.213120: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08440(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] ....  3368.213152: xhci_stop_device: vdev f4258ff3 ctx 1ed30000 | 1ed2f000 num 2 state 7 speed 3 port 1 level 1 slot 1
+     kworker/0:1-920   [000] d...  3368.213160: xhci_queue_trb: CMD: Stop Ring Command: slot 1 sp 1 ep 1 flags C
+     kworker/0:1-920   [000] d...  3368.213161: xhci_inc_enq: CMD d64b4555: enq 0x000000001ed03ee0(0x000000001ed03000) deq 0x000000001ed03ed0(0x000000001ed03000) segs 1 stream 0 free_trbs 253 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3368.213221: xhci_handle_event: EVENT: TRB 000000001ed31690 status 'Stopped - Length Invalid' len 0 slot 1 ep 1 type 'Transfer Event' flags e:C
+          <idle>-0     [000] d.h.  3368.213223: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08450(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+          <idle>-0     [000] d.h.  3368.213260: xhci_handle_event: EVENT: TRB 000000001ed03ed0 status 'Success' len 0 slot 1 ep 0 type 'Command Completion Event' flags e:C
+          <idle>-0     [000] d.h.  3368.213262: xhci_handle_command: CMD: Stop Ring Command: slot 1 sp 1 ep 1 flags C
+          <idle>-0     [000] dnh.  3368.213271: xhci_inc_deq: CMD d64b4555: enq 0x000000001ed03ee0(0x000000001ed03000) deq 0x000000001ed03ee0(0x000000001ed03000) segs 1 stream 0 free_trbs 254 bounce 0 cycle 1
+          <idle>-0     [000] dnh.  3368.213272: xhci_inc_deq: EVENT cbdbbbf5: enq 0x000000001ed05000(0x000000001ed05000) deq 0x000000001ed08460(0x000000001ed08000) segs 8 stream 0 free_trbs 2039 bounce 0 cycle 1
+     kworker/0:1-920   [000] d...  3368.272313: xhci_hub_status_data: port-0: Powered Connected Enabled Link:U3 PortSpeed:3 Change: Wake: WDE WOE 
